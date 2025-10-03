@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Bangsawan Pictures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Georgia:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --color-onyx: #000000;     /* Black */
+      --color-navy: #4A2D8F;     /* Purple from reference */
+      --color-teal: #00D4AA;     /* Teal from reference */
+      --color-gray: #9E9E9E;     /* Gray from reference */
+      --color-beige: #D4B896;    /* Beige from reference */
+      --color-cream: #F5F3F0;    /* Light cream from reference */
+      --color-pearl: #FFFFFF;    /* White */
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      background: var(--color-cream);
+      color: var(--color-onyx);
+      line-height: 1.6;
+    }
+    
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(229, 229, 229, 0.2);
+      padding: 16px 32px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+      transition: transform 0.35s ease, opacity 0.25s ease;
+    }
+    
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 700;
+      font-size: 11px;
+      color: var(--color-onyx);
+      text-decoration: none;
+    }
+    
+    .logo-image {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+    
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--color-navy);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 16px;
+    }
+    
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    nav a {
+      padding: 10px 20px;
+      text-decoration: none;
+      color: var(--color-gray);
+      font-weight: 500;
+      font-size: 15px;
+      border-radius: 25px;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    
+    nav a:hover {
+      background: rgba(74, 45, 143, 0.1);
+      color: var(--color-navy);
+    }
+    
+    nav a.active {
+      background: var(--color-navy);
+      color: white;
+    }
+    
+    
+    /* Services dropdown */
+    .services-dropdown {
+      position: relative;
+    }
+    
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      border: 1px solid rgba(229, 229, 229, 0.3);
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      min-width: 220px;
+      padding: 8px 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      z-index: 1001;
+    }
+    
+    .services-dropdown:hover .dropdown-menu {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .dropdown-menu a {
+      display: block;
+      padding: 10px 16px;
+      color: var(--color-onyx);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 0;
+      background: transparent;
+      transition: background-color 0.2s ease;
+    }
+    
+    .dropdown-menu a:hover {
+      background: rgba(99, 102, 241, 0.1);
+      opacity: 1;
+    }
+    
+    
+
+    /* Hero Section */
+    .hero-section {
+      min-height: 70vh;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-top: 80px;
+    }
+    
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.45));
+      z-index: 0;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    
+    .hero-content h1 {
+      font-size: 6rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+    
+    .hero-content p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 300;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.6);
+    }
+
+    /* Keep in Touch Section */
+    .contact-section {
+      padding: 120px 0 80px;
+      background: #f8f9fa;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 60px;
+      align-items: center;
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .contact-content h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--color-onyx);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    
+    .contact-content p {
+      font-size: 1.1rem;
+      color: #666;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background: var(--color-onyx);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      border: 2px solid var(--color-onyx);
+    }
+    
+    .cta-button:hover {
+      background: transparent;
+      color: var(--color-onyx);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    
+    .contact-info {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px;
+      margin-top: 100px;
+      background: white;
+      padding: 60px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .info-item {
+      text-align: center;
+      padding: 20px;
+    }
+    
+    .info-item h4 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-onyx);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    .info-item p {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* Social Media Section */
+    .social-section {
+      padding: 0;
+      margin: 0;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+    }
+    
+    .social-links {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 140px;
+      width: 100%;
+    }
+    
+    .social-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: white;
+      font-weight: 600;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      height: 100%;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .social-link:last-child {
+      border-right: none;
+    }
+    
+    .social-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+      z-index: 10;
+    }
+    
+    .social-link.facebook { 
+      background: linear-gradient(135deg, #4267B2, #1877F2, #0C63D4);
+    }
+    
+    .social-link.instagram { 
+      background: linear-gradient(135deg, #833AB4, #C13584, #E1306C, #FD1D1D, #F77737);
+    }
+    
+    .social-link.whatsapp { 
+      background: linear-gradient(135deg, #128C7E, #25D366, #DCF8C6);
+    }
+    
+    .social-link.youtube { 
+      background: linear-gradient(135deg, #C4302B, #FF0000, #FF4500);
+    }
+    
+    /* Social Media Icons */
+    .social-link::before {
+      font-size: 2rem;
+      margin-bottom: 4px;
+      opacity: 0.9;
+    }
+    
+    .social-link::after {
+      content: attr(title);
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      opacity: 0.8;
+    }
+    
+    .social-link.facebook::before {
+      content: "f";
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      font-size: 2.2rem;
+    }
+    
+    .social-link.instagram::before {
+      content: "📷";
+      font-size: 1.8rem;
+    }
+    
+    .social-link.whatsapp::before {
+      content: "💬";
+      font-size: 1.8rem;
+    }
+    
+    .social-link.youtube::before {
+      content: "▶";
+      font-size: 1.6rem;
+    }
+    
+    .social-link:hover::before {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+    
+    .social-link:hover::after {
+      opacity: 1;
+    }
+
+    /* Footer */
+    .footer {
+      background: var(--color-onyx);
+      color: white;
+      padding: 40px 0;
+      text-align: center;
+    }
+    
+    .footer p {
+      font-size: 0.9rem;
+      color: var(--color-gray);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 3rem;
+      }
+      
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .contact-info {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      
+      .social-links {
+        gap: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="header-logo">
+      <img src="assets/images/bangsawan-logo.jpg" alt="Bangsawan Pictures" class="logo-image">
+      <span>Bangsawan Pictures</span>
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <div class="services-dropdown">
+        <a href="javascript:void(0)">Services</a>
+        <div class="dropdown-menu">
+          <a href="services/music-event.html">Music Event</a>
+          <a href="services/corporate-event.html">Corporate Event</a>
+          <a href="services/social-media-campaign.html">Social Media Campaign</a>
+          <a href="services/travel-video.html">Travel Video</a>
+          <a href="services/wedding.html">Wedding</a>
+          <a href="services/montage.html">Montage</a>
+          <a href="services/music-video.html">Music Video</a>
+          <a href="services/short-film-tvc.html">Short Film & TVC</a>
+        </div>
+      </div>
+      <a href="our-work.html">Work</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <video class="hero-video" autoplay muted loop>
+      <source src="assets/videos/dele.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Contact</h1>
+      <p>Let's talk about your next project</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-content">
+          <h2>Ready to collaborate?</h2>
+          <p>Tell us about your project and timeline.</p>
+          <a href="mailto:hello@bangsawanpictures.com" class="cta-button">Contact Us</a>
+        </div>
+      </div>
+      
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <div class="info-item">
+          <h4>Postal Address</h4>
+          <p>PO Box 8025, Collins Street West<br>
+          Victoria 8007 Australia</p>
+        </div>
+        <div class="info-item">
+          <h4>Studio HQ</h4>
+          <p>69 King Street, Melbourne<br>
+          Victoria 3000 Australia – Suite 3</p>
+        </div>
+        <div class="info-item">
+          <h4>Business Phone</h4>
+          <p>+61 3 8376 6284<br>
+          +61 3 7860 – 123</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media Section -->
+  <section class="social-section">
+    <div class="social-links">
+      <a href="https://facebook.com/bangsawanpictures" class="social-link facebook" title="Facebook"></a>
+      <a href="https://instagram.com/bangsawanpictures" class="social-link instagram" title="Instagram"></a>
+      <a href="https://wa.me/60123456789" class="social-link whatsapp" title="WhatsApp"></a>
+      <a href="https://youtube.com/@bangsawanpictures" class="social-link youtube" title="YouTube"></a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2024 Bangsawan Pictures. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

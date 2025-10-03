@@ -1,0 +1,70 @@
+/* Bangsawan Pictures theme main stylesheet */
+:root {
+  /* WP presets (kept) */
+  --brand-primary: var(--wp--preset--color--primary);
+  --brand-secondary: var(--wp--preset--color--secondary);
+  --brand-accent: var(--wp--preset--color--accent);
+
+  /* Luxe & Elegant palette (site default) */
+  --color-onyx: #000000;
+  --color-navy: #222052;   /* deep navy */
+  --color-gold: #D2B68A;   /* soft gold */
+  --color-marble: #E6E4E0; /* light grey-beige */
+  --color-cream: #EEE5D3;  /* warm cream */
+  --color-pearl: #FFFFFF;  /* white */
+}
+
+/* Base tweaks */
+body {
+  background: var(--color-cream);
+  color: var(--color-onyx);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header */
+.site-header,
+.wp-block-template-part.header {
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+/* Buttons */
+.wp-element-button,
+.wp-block-button__link {
+  transition: transform .08s ease, opacity .2s ease;
+}
+.wp-element-button:hover,
+.wp-block-button__link:hover {
+  transform: translateY(-1px);
+}
+
+/* Palette-driven button variants */
+.is-style-primary .wp-element-button,
+.wp-block-button.is-style-primary .wp-block-button__link { background: var(--color-onyx); color: var(--color-pearl); }
+.is-style-secondary .wp-element-button,
+.wp-block-button.is-style-secondary .wp-block-button__link { background: var(--color-navy); color: var(--color-pearl); }
+.is-style-accent .wp-element-button,
+.wp-block-button.is-style-accent .wp-block-button__link { background: var(--color-gold); color: var(--color-onyx); }
+
+/* Utilities */
+.bw-container-narrow { max-width: 800px; margin-inline: auto; }
+.bw-container-wide { max-width: 1200px; margin-inline: auto; }
+.bg-cream { background: var(--color-cream) !important; }
+.bg-marble { background: var(--color-marble) !important; }
+.bg-navy { background: var(--color-navy) !important; }
+.bg-onyx { background: var(--color-onyx) !important; }
+.bg-gold { background: var(--color-gold) !important; }
+.text-onyx { color: var(--color-onyx) !important; }
+.text-pearl { color: var(--color-pearl) !important; }
+.text-gold { color: var(--color-gold) !important; }
+
+/* Slider */
+.bw-slider { position: relative; overflow: hidden; }
+.bw-slider .wp-block-cover { display: none; }
+.bw-slider .wp-block-cover.is-active { display: block; }
+.bw-slider .bw-slider-controls { position: absolute; inset: auto 0 10px 0; display:flex; align-items:center; justify-content:center; gap: 12px; pointer-events: none; }
+.bw-slider .bw-slider-controls .bw-prev,
+.bw-slider .bw-slider-controls .bw-next { pointer-events: auto; background: var(--color-gold); color: var(--color-onyx); border: 0; width: 36px; height: 36px; border-radius: 999px; font-size: 18px; line-height: 36px; cursor: pointer; }
+.bw-slider .bw-slider-controls .bw-dots { display:flex; gap:8px; pointer-events:auto; }
+.bw-slider .bw-slider-controls .bw-dots button { width:8px; height:8px; border-radius:999px; border:0; background: rgba(0,0,0,.25); cursor:pointer; }
+.bw-slider .bw-slider-controls .bw-dots button.is-active { background: var(--color-onyx); }

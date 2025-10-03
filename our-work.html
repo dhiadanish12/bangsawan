@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Work - Bangsawan Pictures</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Georgia:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --color-onyx: #000000;
+      --color-navy: #4A5568;
+      --color-teal: #00D4AA;
+      --color-gray: #9E9E9E;
+      --color-beige: #D4B896;
+      --color-cream: #F5F3F0;
+      --color-pearl: #FFFFFF;
+      --color-gold: #D4AF37;     /* Gold Champagne */
+    }
+    
+    * { box-sizing: border-box; }
+    
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Noto Sans;
+      background: var(--color-cream);
+      color: var(--color-onyx);
+      line-height: 1.6;
+    }
+    
+    /* Header */
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: transparent;
+      backdrop-filter: none;
+      border-bottom: none;
+      padding: 20px 40px;
+      box-shadow: none;
+      transition: all 0.3s ease;
+    }
+    
+    /* Header with background when scrolled */
+    header.scrolled {
+      background: rgba(0, 0, 0, 0.9);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+    
+    header.hidden {
+      transform: translateY(-100%);
+      opacity: 0;
+      pointer-events: none;
+    }
+    
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 18px;
+      color: #ffffff;
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    
+    .logo-image {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2px;
+    }
+    
+    .logo-icon {
+      width: 14px;
+      height: 14px;
+      background: var(--color-teal);
+      border-radius: 3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 8px;
+    }
+    
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    nav a {
+      padding: 12px 20px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 600;
+      font-size: 15px;
+      border-radius: 0;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      border: 2px solid transparent;
+    }
+    
+    nav a:hover {
+      background: transparent;
+      color: var(--color-gold);
+      border-color: var(--color-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    }
+    
+    nav a.active {
+      color: var(--color-gold);
+      border-color: var(--color-gold);
+      box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+    }
+    
+    nav a.active:hover {
+      background: transparent;
+      color: var(--color-gold);
+      border-color: var(--color-gold);
+    }
+    
+    /* Services dropdown */
+    .services-dropdown {
+      position: relative;
+    }
+    
+    /* Dropdown arrow icons */
+    .services-dropdown > a::after {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 6px;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid currentColor;
+      transition: transform 0.2s ease;
+    }
+    
+    .services-dropdown:hover > a::after {
+      transform: rotate(180deg);
+    }
+    
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 5px);
+      left: 0;
+      background: rgba(20, 30, 48, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+      min-width: 240px;
+      padding: 8px 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-15px) scale(0.95);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1001;
+    }
+    
+    .services-dropdown:hover .dropdown-menu,
+    .dropdown-menu:hover {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .dropdown-menu a {
+      display: block;
+      padding: 12px 16px;
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 0;
+      background: transparent;
+      transition: all 0.2s ease;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+    
+    .dropdown-menu a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      transform: translateX(4px);
+    }
+    
+    
+    
+    /* Hero Section */
+    .hero {
+      min-height: 75vh;
+      height: 75vh;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      margin-top: 0;
+      padding-top: 0;
+    }
+    
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+    
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1) 40%, rgba(0,0,0,0.4));
+      z-index: 1;
+    }
+    
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      width: min(1100px, 92%);
+      margin: 0 auto;
+      color: #fff;
+      text-align: center;
+    }
+    
+    .hero-top {
+      background: transparent;
+      color: var(--color-pearl);
+      display: block;
+      text-align: center;
+      padding: 120px 0 0 0;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-bottom {
+      background: transparent;
+      color: var(--color-pearl);
+      display: block;
+      text-align: center;
+      padding: 20px 0 0;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .hero-title {
+      font-size: clamp(40px, 7vw, 72px);
+      font-weight: 900;
+      margin-bottom: 24px;
+      letter-spacing: -0.02em;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    
+    .hero-subtitle {
+      font-size: 22px;
+      opacity: 0.95;
+      margin-bottom: 0;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    
+    .hero-content .work-highlight {
+      color: var(--color-gold);
+      text-decoration: underline;
+      text-decoration-color: var(--color-gold);
+      text-underline-offset: 8px;
+      text-decoration-thickness: 3px;
+    }
+    
+    .hero-content p {
+      font-size: 1.2rem;
+      margin: 0;
+      opacity: 0.9;
+    }
+    
+    .hero-content .case-studies {
+      text-decoration: underline;
+      color: var(--color-gold);
+    }
+    
+    /* Filter Tabs */
+    .filter-section {
+      padding: 60px 40px 40px;
+      text-align: center;
+      background: var(--color-pearl);
+    }
+    
+    .filter-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0;
+      max-width: 1200px;
+      margin: 0 auto;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0;
+    }
+    
+    .filter-tab {
+      padding: 16px 28px;
+      border: none;
+      border-bottom: 3px solid transparent;
+      background: transparent;
+      color: #64748b;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      border-radius: 0;
+      font-family: inherit;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      position: relative;
+    }
+    
+    .filter-tab:hover {
+      color: var(--color-gold);
+      border-bottom-color: var(--color-gold);
+      background: rgba(212, 175, 55, 0.05);
+    }
+    
+    .filter-tab.active {
+      background: transparent;
+      border-bottom-color: var(--color-gold);
+      color: var(--color-gold);
+      font-weight: 700;
+    }
+
+    /* Recent Work Section - Matching Home Page */
+    #recentWork .work-container {
+      display: grid;
+      grid-template-columns: 0.3fr 12fr;
+      gap: 5px;
+      max-width: 100vw;
+      margin: 0;
+      padding: 0 0 0 20px;
+    }
+    
+    #recentWork .work-left-column {
+      position: relative;
+    }
+    
+    #recentWork .work-slider-container {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    /* Slider Navigation Buttons - Theory Films Style */
+    #recentWork .slider-nav {
+      position: absolute;
+      bottom: 20px;
+      left: 20px;
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+    
+    #recentWork .slider-btn {
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 107, 53, 0.9);
+      border: none;
+      border-radius: 50%;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+    
+    #recentWork .slider-btn:hover {
+      background: rgba(255, 107, 53, 1);
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    }
+    
+    #recentWork .slider-btn:active {
+      transform: scale(0.95);
+    }
+    
+    #recentWork .work-grid {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: 1fr;
+      gap: 4px;
+      width: 200%;
+      margin: 0;
+      transition: transform 0.5s ease;
+    }
+    
+    #recentWork .work-item {
+      position: relative;
+      height: 70vh;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid white;
+      transition: all 0.3s ease;
+    }
+    
+    #recentWork .work-item:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    
+    #recentWork .work-item video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    #recentWork .work-item:hover video {
+      opacity: 1;
+    }
+    
+    #recentWork .work-item .poster {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+    
+    #recentWork .work-item:hover .poster {
+      opacity: 0;
+    }
+    
+    #recentWork .work-item .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.3s ease;
+    }
+    
+    #recentWork .work-item:hover .overlay {
+      opacity: 0.7;
+    }
+    
+    #recentWork .work-item .brand-name {
+      color: white;
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-align: center;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+    }
+    
+    /* Gallery Grid */
+    .gallery-section {
+      padding: 60px 40px 80px;
+      background: var(--color-pearl);
+    }
+    
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      grid-auto-rows: 200px;
+      gap: 20px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    
+    .work-item {
+      background: #ffffff;
+      border: 3px solid #e2e8f0;
+      border-radius: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+    
+    .work-item:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      border-color: var(--color-gold);
+    }
+    
+    .work-media {
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      background: #000;
+    }
+    
+    .work-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .work-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    
+    /* Video sizes - masonry style for ALL category */
+    .work-item.large {
+      grid-row: span 2;
+    }
+    
+    .work-item.large .work-media {
+      height: 400px;
+    }
+    
+    .work-item.medium .work-media {
+      height: 280px;
+    }
+    
+    .work-item.small .work-media {
+      height: 200px;
+    }
+
+    /* Large sizing for all categories when filtering */
+    .gallery-grid.filtered .work-item {
+      grid-row: span 2;
+    }
+    
+    .gallery-grid.filtered .work-item .work-media {
+      height: 400px; /* Large size for all filtered items */
+    }
+    
+    .gallery-grid.filtered .work-item.large,
+    .gallery-grid.filtered .work-item.medium,
+    .gallery-grid.filtered .work-item.small {
+      grid-row: span 2;
+    }
+    
+    .gallery-grid.filtered .work-item.large .work-media,
+    .gallery-grid.filtered .work-item.medium .work-media,
+    .gallery-grid.filtered .work-item.small .work-media {
+      height: 400px; /* All items become large size when filtered */
+    }
+    
+    /* Play/Pause overlay - Hidden */
+    .video-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      display: none; /* Hidden - no play button on front view */
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .work-item:hover .video-overlay {
+      opacity: 0; /* Keep hidden even on hover */
+    }
+    
+    .play-pause-btn {
+      width: 60px;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.9);
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .play-pause-btn:hover {
+      background: white;
+      transform: scale(1.1);
+    }
+    
+    /* Hide videos that are paused */
+    .work-video.paused {
+      filter: brightness(0.8);
+    }
+
+    /* Fullscreen Video Modal */
+    .video-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.95);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      backdrop-filter: blur(10px);
+    }
+
+    .video-modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      position: relative;
+      width: 90vw;
+      height: 90vh;
+      max-width: 800px;
+      max-height: 600px;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8);
+    }
+
+    /* For portrait videos (reels format) */
+    .modal-content.portrait {
+      width: 50vw;
+      height: 80vh;
+      max-width: 400px;
+      max-height: 700px;
+    }
+
+    .modal-video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 24px;
+      color: white;
+      transition: all 0.3s ease;
+      z-index: 10001;
+      backdrop-filter: blur(10px);
+    }
+
+    .modal-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: scale(1.1);
+    }
+
+    .modal-controls {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 15px;
+      z-index: 10001;
+    }
+
+    .modal-control-btn {
+      width: 50px;
+      height: 50px;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 20px;
+      color: white;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .modal-control-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.5);
+      transform: scale(1.1);
+    }
+
+    /* Animation for modal */
+    @keyframes modalFadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.8);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    .video-modal.active .modal-content {
+      animation: modalFadeIn 0.3s ease-out;
+    }
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .filter-tabs {
+        gap: 6px;
+      }
+      
+      .filter-tab {
+        padding: 10px 16px;
+        font-size: 12px;
+      }
+
+      /* Mobile modal adjustments */
+      .modal-content {
+        width: 95vw;
+        height: 70vh;
+        max-width: none;
+        max-height: none;
+      }
+
+      .modal-content.portrait {
+        width: 90vw;
+        height: 75vh;
+        max-width: 350px;
+      }
+
+      .modal-close {
+        top: 15px;
+        right: 15px;
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+      }
+
+      .modal-controls {
+        bottom: 15px;
+        gap: 10px;
+      }
+
+      .modal-control-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 18px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-content p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <a href="index.html" class="header-logo">
+      <img src="assets/images/bangsawan-logo.jpg" alt="Bangsawan Pictures" class="logo-image">
+      <span>Bangsawan Pictures</span>
+    </a>
+    <nav>
+      <div class="services-dropdown">
+        <a href="about.html">About</a>
+        <div class="dropdown-menu">
+          <a href="about.html">About Us</a>
+          <a href="about.html#process">Our Process</a>
+        </div>
+      </div>
+      <a href="director.html">Directors</a>
+      <div class="services-dropdown">
+        <a href="javascript:void(0)">Services</a>
+        <div class="dropdown-menu">
+          <a href="services/short-film-tvc.html">Short Film & TVC</a>
+          <a href="services/music-video.html">Music Videos</a>
+          <a href="services/wedding.html">Wedding Films</a>
+          <a href="services/corporate-event.html">Corporate Events</a>
+          <a href="services/social-media-campaign.html">Social Media Content</a>
+          <a href="services/travel-video.html">Travel & Documentary</a>
+          <a href="services/music-event.html">Music Events</a>
+          <a href="services/montage.html">Montage</a>
+        </div>
+      </div>
+      <a href="our-work.html" class="active">Work</a>
+      <a href="insights.html">Insights</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop>
+      <source src="assets/videos/concert 3.mp4" type="video/mp4">d    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+      <div class="hero-top">
+        <div class="hero-content">
+          <h1 class="hero-title">OUR <span style="color: #D4AF37;">WORK</span></h1>
+          <p class="hero-subtitle">Creative Portfolio & Case Studies</p>
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <div class="hero-content">
+          <p style="font-size: 19px; line-height: 1.8; max-width: 750px; margin: 0 auto; font-weight: 400; opacity: 0.92;">
+            Explore our comprehensive collection of creative work across different categories. From brand films to social media campaigns, each project showcases our commitment to exceptional storytelling.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Tabs -->
+  <section class="filter-section">
+    <div class="filter-tabs">
+      <button class="filter-tab active" data-filter="all">All</button>
+      <button class="filter-tab" data-filter="social-media">Social Media</button>
+      <button class="filter-tab" data-filter="travel-video">Travel Video</button>
+      <button class="filter-tab" data-filter="music-event">Music Event</button>
+      <button class="filter-tab" data-filter="wedding">Wedding</button>
+      <button class="filter-tab" data-filter="montage">Montage</button>
+      <button class="filter-tab" data-filter="music-video">Music Video</button>
+      <button class="filter-tab" data-filter="corporate-event">Corporate Event</button>
+      <button class="filter-tab" data-filter="short-film-tvc">short-film-tvc</button>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="gallery-section">
+    <div class="gallery-grid">
+      
+      <!-- Brand Film - Large -->
+      <div class="work-item large" data-category="music-event">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/music event 4.mp4" type="video/mp4">
+            <img src="assets/images/m.nasir1.jpg" alt="music-event" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Animation - Medium -->
+      <div class="work-item medium" data-category="corporate-event">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/m naisr music evnt.mp4" type="video/mp4">
+            <img src="assets/images/animation-1.jpg" alt="corporate-event" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Media - Small -->
+      <div class="work-item small" data-category="social-media">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/secial media 1.mp4" type="video/mp4">
+            <img src="assets/images/social-media-1.jpg" alt="Social Media" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wedding - Large -->
+      <div class="work-item large" data-category="montage">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/elite 2.mp4" type="video/mp4">
+            <img src="assets/images/wedding-1.jpg" alt="Montage" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Montage - Medium -->
+      <div class="work-item medium" data-category="wedding">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/(The Wedding) ANI & HAKIMI.mp4" type="video/mp4">
+            <img src="assets/images/montage-1.jpg" alt="Wedding" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- TV Commercial - Medium -->
+      <div class="work-item medium" data-category="short-film-tvc">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/short film charity.mp4" type="video/mp4">
+            <img src="assets/images/tv-commercial-1.jpg" alt="short-film-tvc" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Music Video - Small -->
+      <div class="work-item small" data-category="music-video">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/m naisr music evnt.mp4" type="video/mp4">
+            <img src="assets/images/music-video-1.jpg" alt="Music Video" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item large" data-category="wedding">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/wedding 1.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="wedding" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="work-item large" data-category="wedding">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/(THE WEDDING) Fahimi & Puteri.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="wedding" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+
+            <!-- Animation - Medium -->
+            <div class="work-item large" data-category="music-event">
+              <div class="work-media">
+                <video class="work-video" muted loop>
+                  <source src="assets/videos/universe music video.mp4" type="video/mp4">
+                  <img src="assets/images/animation-1.jpg" alt="music-event" class="work-image">
+                </video>
+                <div class="video-overlay">
+                  <button class="play-pause-btn">▶</button>
+                </div>
+              </div>
+            </div>
+
+                  <!-- Corporate Event - Medium -->
+      <div class="work-item medium" data-category="music-event">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/ungu music event.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="music-event" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item small" data-category="wedding">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/(THE WEDDING) Shazrin & Syazana.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="wedding" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item small" data-category="wedding">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/wedding 2.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="wedding" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item large" data-category="wedding">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/THE RECEPTION Haikal & Rysha.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="wedding" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item large" data-category="music-event">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/rossa consert.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="music-event" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item medium" data-category="music-event">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/music video 1.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="music-event" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item small" data-category="music-event">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/music event dewa.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="music-event" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item large" data-category="music-event">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/aim 1.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="music-event" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item large" data-category="music-event">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/music event asmara.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="music-event" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item medium" data-category="music-event">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/intifada 2.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="music-event" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item large" data-category="music-video">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/hael consert.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="music-event" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item small" data-category="corporate-event">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/corporate event 2.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="corporate-event" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item large" data-category="corporate-event">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/corporate event 1.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="corporate-event" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item medium" data-category="corporate-event">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/corparate-intifada.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="corporate-event" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item large" data-category="corporate-event">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/corparate merdeka 2024.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="corporate-event" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="work-item small" data-category="music-video">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/genkru.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="music-video" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item medium" data-category="music-video">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/concert 1.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="music-video" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="work-item large" data-category="music-video">
+        <div class="work-media">
+          <video class="work-video" muted loop>
+            <source src="assets/videos/concert 3.mp4" type="video/mp4">
+            <img src="assets/images/corporate-event-1.jpg" alt="music-video" class="work-image">
+          </video>
+          <div class="video-overlay">
+            <button class="play-pause-btn">▶</button>
+          </div>
+        </div>
+      </div>
+
+      
+      <!-- Add more video items as needed for each category -->
+      
+    </div>
+  </section>
+
+  <!-- Recent Work Section -->
+  <section id="recentWork" style="background: linear-gradient(to bottom, #2c3e50 0%, #2c3e50 50%, #1a2332 50%, #1a2332 100%); padding: 80px 0 80px 0; color: white;">
+    <h2 style="text-align: center; margin: 0 0 60px 0; font-weight: 900; font-size: clamp(42px, 6vw, 56px); color: white; font-style: italic; text-transform: uppercase; letter-spacing: -1px;">RECENT <span style="color: #D4AF37;">WORK:</span></h2>
+    
+    <div class="work-container">
+      <!-- Left Blank Column (like Theory Films) -->
+      <div class="work-left-column"></div>
+      
+      <!-- Slider Container -->
+      <div class="work-slider-container">
+        <!-- Slider Navigation Buttons -->
+        <div class="slider-nav">
+          <button class="slider-btn" id="prevWorkBtn">‹</button>
+          <button class="slider-btn" id="nextWorkBtn">›</button>
+        </div>
+        
+        <div class="work-grid" id="recentWorkSlider">
+          <!-- Work Item 1 -->
+          <div class="work-item">
+            <img src="assets/images/client-1.jpg" alt="Jigsaw" class="poster">
+            <video muted loop playsinline>
+              <source src="assets/videos/genkru.mp4" type="video/mp4">
+            </video>
+            <div class="overlay">
+              <div class="brand-name">FATFACE</div>
+            </div>
+          </div>
+          
+          <!-- Work Item 2 -->
+          <div class="work-item">
+            <img src="assets/images/client-2.jpg" alt="Pointr" class="poster">
+            <video muted loop playsinline>
+              <source src="assets/videos/dele.mp4.mp4" type="video/mp4">
+            </video>
+            <div class="overlay">
+              <div class="brand-name">MAJISTO</div>
+            </div>
+          </div>
+          
+          <!-- Work Item 3 -->
+          <div class="work-item">
+            <img src="assets/images/client-3.jpg" alt="FatFace" class="poster">
+            <video muted loop playsinline>
+              <source src="assets/videos/index-aboutus.mp4" type="video/mp4">
+            </video>
+            <div class="overlay">
+              <div class="brand-name">TUI</div>
+            </div>
+          </div>
+          
+          <!-- Work Item 4 -->
+          <div class="work-item">
+            <img src="assets/images/client-4.jpg" alt="Tantalex" class="poster">
+            <video muted loop playsinline>
+              <source src="assets/videos/concert 1.mp4" type="video/mp4">
+            </video>
+            <div class="overlay">
+              <div class="brand-name">TANTALEX</div>
+            </div>
+          </div>
+          
+          <!-- Work Item 5 -->
+          <div class="work-item">
+            <img src="assets/images/client-1.jpg" alt="Extra" class="poster">
+            <video muted loop playsinline>
+              <source src="assets/videos/genkru.mp4" type="video/mp4">
+            </video>
+            <div class="overlay">
+              <div class="brand-name">EXTRA</div>
+            </div>
+          </div>
+          
+          <!-- Work Item 6 -->
+          <div class="work-item">
+            <img src="assets/images/client-2.jpg" alt="More" class="poster">
+            <video muted loop playsinline>
+              <source src="assets/videos/dele.mp4.mp4" type="video/mp4">
+            </video>
+            <div class="overlay">
+              <div class="brand-name">MORE</div>
+            </div>
+          </div>
+          
+          <!-- Work Item 7 -->
+          <div class="work-item">
+            <img src="assets/images/client-3.jpg" alt="Brand" class="poster">
+            <video muted loop playsinline>
+              <source src="assets/videos/index-aboutus.mp4" type="video/mp4">
+            </video>
+            <div class="overlay">
+              <div class="brand-name">BRAND</div>
+            </div>
+          </div>
+          
+          <!-- Work Item 8 -->
+          <div class="work-item">
+            <img src="assets/images/client-4.jpg" alt="Final" class="poster">
+            <video muted loop playsinline>
+              <source src="assets/videos/concert 1.mp4" type="video/mp4">
+            </video>
+            <div class="overlay">
+              <div class="brand-name">FINAL</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Header scroll behavior
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    
+    function updateHeader() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      
+      // Add scrolled class when scrolled
+      if (scrollTop > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+      
+      // Hide/show header based on scroll direction
+      if (scrollTop > lastScrollTop && scrollTop > 200) {
+        header.classList.add('hidden');
+      } else {
+        header.classList.remove('hidden');
+      }
+      
+      lastScrollTop = scrollTop;
+    }
+    
+    window.addEventListener('scroll', updateHeader);
+    
+    // Filter functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const filterTabs = document.querySelectorAll('.filter-tab');
+      const workItems = document.querySelectorAll('.work-item');
+      const galleryGrid = document.querySelector('.gallery-grid');
+
+      filterTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+          const filter = this.getAttribute('data-filter');
+          
+          // Update active tab
+          filterTabs.forEach(t => t.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Add or remove filtered class for uniform sizing
+          if (filter === 'all') {
+            galleryGrid.classList.remove('filtered');
+          } else {
+            galleryGrid.classList.add('filtered');
+          }
+          
+          // Filter work items
+          workItems.forEach(item => {
+            const category = item.getAttribute('data-category');
+            
+            if (filter === 'all' || category === filter) {
+              item.style.display = 'block';
+              item.style.animation = 'fadeIn 0.5s ease';
+            } else {
+              item.style.display = 'none';
+            }
+          });
+        });
+      });
+
+      // Video play/pause functionality
+      const playPauseBtns = document.querySelectorAll('.play-pause-btn');
+      
+      playPauseBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.stopPropagation();
+          const video = this.closest('.work-media').querySelector('.work-video');
+          
+          if (video.paused) {
+            video.play();
+            this.textContent = '⏸';
+            video.classList.remove('paused');
+          } else {
+            video.pause();
+            this.textContent = '▶';
+            video.classList.add('paused');
+          }
+        });
+      });
+
+      // Pause all other videos when one starts playing
+      const videos = document.querySelectorAll('.work-video');
+      videos.forEach(video => {
+        video.addEventListener('play', function() {
+          videos.forEach(otherVideo => {
+            if (otherVideo !== this && !otherVideo.paused) {
+              otherVideo.pause();
+              const btn = otherVideo.closest('.work-media').querySelector('.play-pause-btn');
+              btn.textContent = '▶';
+              otherVideo.classList.add('paused');
+            }
+          });
+        });
+      });
+
+      // Recent Work Slider functionality - Matching Home Page
+      const recentWorkSlider = document.getElementById('recentWorkSlider');
+      const prevWorkBtn = document.getElementById('prevWorkBtn');
+      const nextWorkBtn = document.getElementById('nextWorkBtn');
+      let currentRecentWorkIndex = 0;
+      const totalRecentWorkItems = 8; // Total number of work items
+      const visibleRecentWorkItems = 4; // Number of items visible at once
+      const maxRecentWorkIndex = totalRecentWorkItems - visibleRecentWorkItems;
+
+      function updateRecentWorkSlider() {
+        const translatePercentage = (currentRecentWorkIndex / totalRecentWorkItems) * -100;
+        recentWorkSlider.style.transform = `translateX(${translatePercentage}%)`;
+      }
+
+      if (prevWorkBtn) {
+        prevWorkBtn.addEventListener('click', () => {
+          if (currentRecentWorkIndex > 0) {
+            currentRecentWorkIndex--;
+            updateRecentWorkSlider();
+          }
+        });
+      }
+
+      if (nextWorkBtn) {
+        nextWorkBtn.addEventListener('click', () => {
+          if (currentRecentWorkIndex < maxRecentWorkIndex) {
+            currentRecentWorkIndex++;
+            updateRecentWorkSlider();
+          }
+        });
+      }
+
+      // Recent Work hover effects - Matching Home Page
+      const recentWorkCards = document.querySelectorAll('#recentWork .work-item');
+      recentWorkCards.forEach(item => {
+        const video = item.querySelector('video');
+        
+        item.addEventListener('mouseenter', () => {
+          if (video) {
+            video.play().catch(e => console.log('Video play failed:', e));
+          }
+        });
+        
+        item.addEventListener('mouseleave', () => {
+          if (video) {
+            video.pause();
+            video.currentTime = 0;
+          }
+        });
+      });
+
+      // Fullscreen Video Modal Functionality
+      const videoModal = document.getElementById('videoModal');
+      const modalContent = document.getElementById('modalContent');
+      const modalVideo = document.getElementById('modalVideo');
+      const modalClose = document.getElementById('modalClose');
+      const modalPlayPause = document.getElementById('modalPlayPause');
+      const modalMute = document.getElementById('modalMute');
+
+      // Function to open modal with video
+      function openVideoModal(videoSrc, isPortrait = false) {
+        // Set video source
+        modalVideo.src = videoSrc;
+        
+        // Add portrait class for reels format
+        if (isPortrait) {
+          modalContent.classList.add('portrait');
+        } else {
+          modalContent.classList.remove('portrait');
+        }
+        
+        // Show modal
+        videoModal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        
+        // Auto play video
+        modalVideo.play().catch(e => console.log('Modal video play failed:', e));
+      }
+
+      // Function to close modal
+      function closeVideoModal() {
+        videoModal.classList.remove('active');
+        document.body.style.overflow = 'auto'; // Restore scrolling
+        modalVideo.pause();
+        modalVideo.src = ''; // Clear source to stop loading
+      }
+
+      // Add click listeners to all work items
+      const allWorkItems = document.querySelectorAll('.work-item');
+      allWorkItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+          // Don't trigger if clicking on play/pause button
+          if (e.target.classList.contains('play-pause-btn')) {
+            return;
+          }
+          
+          const video = item.querySelector('video source');
+          if (video) {
+            const videoSrc = video.src;
+            // Check if it's a portrait video (you can adjust this logic based on your video naming or data attributes)
+            const isPortrait = videoSrc.includes('reel') || videoSrc.includes('portrait') || videoSrc.includes('vertical');
+            openVideoModal(videoSrc, isPortrait);
+          }
+        });
+      });
+
+      // Modal control event listeners
+      modalClose.addEventListener('click', closeVideoModal);
+      
+      // Close modal when clicking outside the video
+      videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+          closeVideoModal();
+        }
+      });
+
+      // Play/Pause control
+      modalPlayPause.addEventListener('click', () => {
+        if (modalVideo.paused) {
+          modalVideo.play();
+          modalPlayPause.textContent = '⏸';
+        } else {
+          modalVideo.pause();
+          modalPlayPause.textContent = '▶';
+        }
+      });
+
+      // Mute/Unmute control
+      modalMute.addEventListener('click', () => {
+        if (modalVideo.muted) {
+          modalVideo.muted = false;
+          modalMute.textContent = '🔊';
+        } else {
+          modalVideo.muted = true;
+          modalMute.textContent = '🔇';
+        }
+      });
+
+      // Keyboard controls
+      document.addEventListener('keydown', (e) => {
+        if (videoModal.classList.contains('active')) {
+          switch(e.key) {
+            case 'Escape':
+              closeVideoModal();
+              break;
+            case ' ':
+            case 'k':
+              e.preventDefault();
+              if (modalVideo.paused) {
+                modalVideo.play();
+                modalPlayPause.textContent = '⏸';
+              } else {
+                modalVideo.pause();
+                modalPlayPause.textContent = '▶';
+              }
+              break;
+            case 'm':
+              if (modalVideo.muted) {
+                modalVideo.muted = false;
+                modalMute.textContent = '🔊';
+              } else {
+                modalVideo.muted = true;
+                modalMute.textContent = '🔇';
+              }
+              break;
+          }
+        }
+      });
+
+      // Update play/pause button based on video state
+      modalVideo.addEventListener('play', () => {
+        modalPlayPause.textContent = '⏸';
+      });
+      
+      modalVideo.addEventListener('pause', () => {
+        modalPlayPause.textContent = '▶';
+      });
+    });
+
+    // Add fade in animation
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+
+  <!-- Contact Section - Theory Film Style -->
+  <section id="contact" style="background: #2c3e50; padding: 120px 60px; position: relative; text-align: center;">
+    <!-- Decorative arrow -->
+    <div style="position: absolute; top: 60px; left: 50%; transform: translateX(-50%); width: 60px; height: 60px;">
+      <svg width="60" height="60" viewBox="0 0 100 100" style="stroke: var(--color-gold); stroke-width: 2; fill: none; stroke-dasharray: 5,5;">
+        <path d="M20,20 Q50,5 80,20 Q65,50 80,80 Q50,65 20,80 Q35,50 20,20" stroke-linecap="round"/>
+        <path d="M45,35 L55,45 L45,55" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    
+    <div style="max-width: 800px; margin: 0 auto;">
+      <!-- Small header text -->
+      <p style="color: var(--color-gold); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 20px 0;">GOT A PROJECT IN MIND?</p>
+      
+      <!-- Main heading -->
+      <h2 style="font-size: clamp(48px, 8vw, 80px); font-weight: 900; margin: 0 0 60px 0; line-height: 1; text-transform: uppercase; letter-spacing: -2px; color: white; font-style: italic;">LET'S TALK</h2>
+      
+      <!-- Contact button -->
+      <a href="contact.html" style="background: var(--color-gold); color: #1a1a1a; padding: 18px 36px; border-radius: 6px; text-decoration: none; font-weight: 700; font-size: 16px; display: inline-block; transition: background-color 0.3s ease; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 80px;" onmouseover="this.style.background='#B89C72'" onmouseout="this.style.background='var(--color-gold)'">
+        CONTACT US
+      </a>
+    </div>
+  </section>
+
+  <!-- Theory Films Style Footer -->
+  <footer style="background: #1a2332; padding: 80px 40px 40px; color: white;">
+    <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; align-items: start;">
+      
+      <!-- Left Column - Brand & Description -->
+      <div>
+        <div style="display: flex; align-items: center; margin-bottom: 20px;">
+          <span style="color: #D4AF37; font-weight: 900; font-size: 24px; text-transform: uppercase; letter-spacing: 1px;">BANGSAWAN</span>
+          <span style="color: white; font-weight: 300; font-size: 16px; margin-left: 8px;">FILMS</span>
+        </div>
+        <p style="color: rgba(255,255,255,0.8); font-size: 16px; line-height: 1.6; margin: 0 0 30px 0; max-width: 400px;">Bangsawan Pictures - one of Malaysia's best video production agencies, making great videos for great brands & agencies.</p>
+        
+        <!-- Awards/Badges -->
+        <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 40px;">
+          <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; text-align: center; min-width: 80px;">
+            <div style="font-size: 12px; font-weight: 700; color: #D4AF37; margin-bottom: 5px;">CLUTCH</div>
+            <div style="font-size: 10px; color: rgba(255,255,255,0.7);">TOP AGENCY</div>
+          </div>
+          <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; text-align: center; min-width: 80px;">
+            <div style="font-size: 12px; font-weight: 700; color: #D4AF37; margin-bottom: 5px;">THE</div>
+            <div style="font-size: 10px; color: rgba(255,255,255,0.7);">WEBBY AWARDS</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Quick Links Column -->
+      <div>
+        <h4 style="color: #D4AF37; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 20px 0;">QUICK LINKS</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 12px;"><a href="index.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Home</a></li>
+          <li style="margin-bottom: 12px;"><a href="about.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">About</a></li>
+          <li style="margin-bottom: 12px;"><a href="our-process.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Our Process</a></li>
+          <li style="margin-bottom: 12px;"><a href="our-work.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Work</a></li>
+          <li style="margin-bottom: 12px;"><a href="insights.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Insights</a></li>
+          <li style="margin-bottom: 12px;"><a href="contact.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Contact</a></li>
+          <li style="margin-bottom: 12px;"><a href="privacy-policy.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Privacy Policy</a></li>
+          <li style="margin-bottom: 12px;"><a href="terms-conditions.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Terms & Conditions</a></li>
+        </ul>
+      </div>
+      
+      <!-- Services Column -->
+      <div>
+        <h4 style="color: #D4AF37; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 20px 0;">SERVICES</h4>
+        <ul style="list-style: none; padding: 0; margin: 0;">
+          <li style="margin-bottom: 12px;"><a href="services/brand-videos.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Brand Videos</a></li>
+          <li style="margin-bottom: 12px;"><a href="services/social-media-videos.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Social Media Videos</a></li>
+          <li style="margin-bottom: 12px;"><a href="services/animated-explainers.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Animated Explainer Videos</a></li>
+          <li style="margin-bottom: 12px;"><a href="services/promo-videos.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Promo Videos</a></li>
+          <li style="margin-bottom: 12px;"><a href="services/education-elearning.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Education & E-Learning Videos</a></li>
+          <li style="margin-bottom: 12px;"><a href="services/testimonial-videos.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Testimonial Videos</a></li>
+          <li style="margin-bottom: 12px;"><a href="services/tv-commercials.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">TV Commercials</a></li>
+        </ul>
+      </div>
+      
+      <!-- Contact Column -->
+      <div>
+        <h4 style="color: #D4AF37; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 20px 0;">SAY HELLO!</h4>
+        <div style="margin-bottom: 15px;">
+          <p style="color: white; font-size: 14px; margin: 0; display: flex; align-items: center; gap: 8px;">📞 (+60) 12-345 6789</p>
+        </div>
+        <div style="margin-bottom: 15px;">
+          <p style="color: white; font-size: 14px; margin: 0; display: flex; align-items: center; gap: 8px;">✉️ contact@bangsawanpictures.com</p>
+        </div>
+        <div style="margin-bottom: 25px;">
+          <p style="color: white; font-size: 14px; margin: 0; display: flex; align-items: center; gap: 8px;">📍 Kuala Lumpur, Malaysia</p>
+        </div>
+        
+        <!-- Social Media Icons -->
+        <div style="display: flex; gap: 12px;">
+          <a href="#" style="color: rgba(255,255,255,0.8); font-size: 18px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">📘</a>
+          <a href="#" style="color: rgba(255,255,255,0.8); font-size: 18px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">📷</a>
+          <a href="#" style="color: rgba(255,255,255,0.8); font-size: 18px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">🐦</a>
+          <a href="#" style="color: rgba(255,255,255,0.8); font-size: 18px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">💼</a>
+          <a href="#" style="color: rgba(255,255,255,0.8); font-size: 18px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">💼</a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Bottom Copyright Bar -->
+    <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin-left: auto; margin-right: auto;">
+      <p style="color: rgba(255,255,255,0.6); font-size: 14px; margin: 0;">© 2025 Bangsawan Pictures. All rights reserved.</p>
+      <p style="color: rgba(255,255,255,0.6); font-size: 14px; margin: 0;">Web design by Action Wolf Media</p>
+    </div>
+  </footer>
+
+  <!-- Fullscreen Video Modal -->
+  <div class="video-modal" id="videoModal">
+    <div class="modal-content" id="modalContent">
+      <video class="modal-video" id="modalVideo" controls>
+        <!-- Video source will be set dynamically -->
+      </video>
+      <button class="modal-close" id="modalClose">×</button>
+      <div class="modal-controls">
+        <button class="modal-control-btn" id="modalPlayPause">⏸</button>
+        <button class="modal-control-btn" id="modalMute">🔊</button>
+      </div>
+    </div>
+  </div>
+
+  </section>
+</body>
+</html>

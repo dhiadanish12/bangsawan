@@ -1,0 +1,2371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bangsawan Pictures - Professional Video Production</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Georgia:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* Updated color palette - Cadet Blue Theme */
+      html {
+        overflow-x: hidden;
+        max-width: 100vw;
+      }
+      
+      :root{
+        --color-onyx: #000000;     /* Black */
+        --color-navy: #5F7A8A;     /* Cadet Blue */
+        --color-teal: #95B3C7;     /* Light blue */
+        --color-gray: #9E9E9E;     /* Gray */
+        --color-beige: #D2B696;    /* Beige */
+        --color-cream: #F7E7CE;    /* Cream */
+        --color-pearl: #FFFFFF;    /* White */
+        --color-gold: #D4AF37;     /* Gold Champagne */
+      }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto,
+          Helvetica, Arial, Noto Sans;
+        background: var(--color-cream);
+        color: var(--color-onyx);
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: 100vh;
+        width: 100vw;
+        max-width: 100vw;
+      }
+      header,
+    
+    /* Header Styling */
+    header {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      transition: all 0.4s ease;
+      background: transparent;
+    }
+
+    header.scrolled {
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(10px);
+      padding: 10px 40px;
+    }
+
+    header.hidden {
+      transform: translateY(-100%);
+    }
+
+    /* Header Logo */
+    .header-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 18px;
+      color: #ffffff;
+      text-decoration: none;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    
+    .logo-image {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2px;
+    }
+
+    /* Services dropdown */
+    .services-dropdown {
+      position: relative;
+    }
+    
+    .dropdown-menu {
+      position: absolute;
+      top: calc(100% + 5px);
+      left: 0;
+      background: rgba(20, 30, 48, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+      min-width: 240px;
+      padding: 8px 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-15px) scale(0.95);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1001;
+    }
+    
+    .services-dropdown:hover .dropdown-menu,
+    .dropdown-menu:hover {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .dropdown-menu a {
+      display: block;
+      padding: 12px 16px;
+      color: rgba(255, 255, 255, 0.9);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      border-radius: 0;
+      background: transparent;
+      transition: all 0.2s ease;
+      text-transform: none;
+      letter-spacing: normal;
+    }
+    
+    .dropdown-menu a:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      transform: translateX(4px);
+    }
+
+    /* Dropdown arrow icons */
+    .services-dropdown > a::after {
+      content: '';
+      display: inline-block;
+      width: 0;
+      height: 0;
+      margin-left: 6px;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid currentColor;
+      transition: transform 0.2s ease;
+    }
+    
+    .services-dropdown:hover > a::after {
+      transform: rotate(180deg);
+    }
+
+    /* Optional: elak flash masa load */
+    body:not(.loaded) header {
+      opacity: 0;
+      transition: none;
+    }
+
+    /* Header overflow fix for larger screens */
+    @media (max-width: 1400px) {
+      header {
+        padding: 20px 30px;
+      }
+      
+      nav {
+        gap: 6px;
+      }
+      
+      nav a {
+        padding: 12px 15px;
+        font-size: 14px;
+        letter-spacing: 0.8px;
+      }
+    }
+    
+    /* Mobile responsiveness */
+    @media (max-width: 1200px) {
+      header {
+        padding: 15px 30px;
+      }
+      
+      nav {
+        gap: 6px;
+      }
+      
+      nav a {
+        padding: 10px 16px;
+        font-size: 14px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 12px 20px;
+      }
+      
+      nav {
+        gap: 4px;
+      }
+      
+      nav a {
+        padding: 8px 12px;
+        font-size: 13px;
+        letter-spacing: 0.5px;
+      }
+      
+      .header-logo {
+        font-size: 16px;
+      }
+      
+      .logo-image {
+        width: 32px;
+        height: 32px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      header {
+        padding: 10px 15px;
+      }
+      
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2px;
+      }
+      
+      nav a {
+        padding: 6px 8px;
+        font-size: 12px;
+        letter-spacing: 0px;
+      }
+      
+      .header-logo span {
+        display: none;
+      }
+    }
+
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      
+      nav a {
+        padding: 12px 18px;
+        text-decoration: none;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 15px;
+        border-radius: 0;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: 2px solid transparent;
+        white-space: nowrap;
+      }
+      
+      nav a:hover {
+        color: var(--color-gold);
+        border-color: var(--color-gold);
+        background: transparent;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+      }
+      
+      /* Navigation active states */
+      nav a.active {
+        background: transparent;
+        color: var(--color-gold);
+        border-color: var(--color-gold);
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+      }
+      
+      nav a.active:hover {
+        background: transparent;
+        color: var(--color-gold);
+        border-color: var(--color-gold);
+      }
+      
+      /* Client logos marquee animation */
+      @keyframes scroll {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+      
+      .marquee .track:hover {
+        animation-play-state: paused;
+      }
+      
+      .container {
+        max-width: 1400px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 20px;
+        box-sizing: border-box;
+        overflow-x: hidden;
+      }
+      .fullwidth {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        position: relative;
+        overflow-x: hidden;
+      }
+      
+      .fullwidth::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+      }
+      
+      #services.fullwidth::before {
+        background: #2C3E50;
+      }
+      
+      #recent-work.fullwidth::before {
+        background: #000000;
+      }
+      
+      #pricing.fullwidth::before {
+        background: #FFFFFF;
+      }
+      .spacer-20 {
+        height: 20px;
+      }
+      .spacer-40 {
+        height: 40px;
+      }
+      
+      /* Animation Styles */
+      .animate-element {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      
+      .animate-element.animate-in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      .animate-element.slide-left {
+        transform: translateX(-50px);
+      }
+      
+      .animate-element.slide-left.animate-in {
+        transform: translateX(0);
+      }
+      
+      .animate-element.slide-right {
+        transform: translateX(50px);
+      }
+      
+      .animate-element.slide-right.animate-in {
+        transform: translateX(0);
+      }
+      
+      .animate-element.fade-in {
+        transform: none;
+      }
+      
+      .animate-element.scale-in {
+        transform: scale(0.8);
+      }
+      
+      .animate-element.scale-in.animate-in {
+        transform: scale(1);
+      }
+      
+    
+    </style>
+  </head>
+  <body>
+    <!-- Header mimic of parts/header.html -->
+<!-- Header -->
+<header>
+  <a href="#home" class="header-logo">
+    <img src="assets/images/bangsawan-logo.jpg" alt="Bangsawan Pictures" class="logo-image" />
+    <span>Bangsawan Pictures</span>
+  </a>
+  <nav>
+    <div class="services-dropdown">
+      <a href="about.html">About</a>
+      <div class="dropdown-menu">
+        <a href="about-new.html">About Us</a>
+        <a href="about.html#process">Our Process</a>
+      </div>
+    </div>
+    <a href="director.html">Directors</a>
+    <div class="services-dropdown">
+      <a href="#services">Services</a>
+      <div class="dropdown-menu">
+        <a href="services/corporate-event.html">Corporate Event</a>
+        <a href="services/social-media-campaign.html">Social Media Videos</a>
+        <a href="services/music-event.html">Music Events</a>
+        <a href="services/music-video.html">Music Videos</a>
+        <a href="services/short-film-tvc.html">Short Film & TVC</a>
+        <a href="services/travel-video.html">Travel Videos</a>
+        <a href="servicces/wedding.html">Wedding Videos</a>
+        <a href="services/montage.html">Montage</a>
+      </div>
+    </div>
+    <a href="#work">Work</a>
+    <a href="#insights">Insights</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+</header>
+<script>
+  function setupHeaderBehavior() {
+    const header = document.querySelector("header");
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+
+      if (window.scrollY > lastScrollY && window.scrollY > 200) {
+        header.classList.add("hidden");
+      } else {
+        header.classList.remove("hidden");
+      }
+      lastScrollY = window.scrollY;
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    setupHeaderBehavior();
+    document.body.classList.add("loaded"); // elak flash
+    
+    // Setup other components
+    setupVideoPlayer();
+    setupAboutAnimations();
+    setupServiceCards();
+  });
+      
+      // Showreel Video Player Functionality
+      function setupVideoPlayer() {
+        const video = document.getElementById('showreelVideo');
+        const overlay = document.getElementById('videoOverlay');
+        const playButton = document.getElementById('playButton');
+        const pauseButton = document.getElementById('pauseButton');
+        const videoControls = document.getElementById('videoControls');
+        const progressBar = document.getElementById('progressBar');
+        const progress = document.getElementById('progress');
+        const timeDisplay = document.getElementById('timeDisplay');
+
+        if (!video) return;
+
+        // Play button click
+        overlay.addEventListener('click', function() {
+          video.play();
+          overlay.style.display = 'none';
+          videoControls.style.display = 'block';
+        });
+
+        // Pause button click
+        pauseButton.addEventListener('click', function() {
+          video.pause();
+          overlay.style.display = 'flex';
+          videoControls.style.display = 'none';
+        });
+
+        // Progress bar click
+        progressBar.addEventListener('click', function(e) {
+          const rect = progressBar.getBoundingClientRect();
+          const clickX = e.clientX - rect.left;
+          const width = rect.width;
+          const percentage = clickX / width;
+          video.currentTime = percentage * video.duration;
+        });
+
+        // Update progress and time
+        video.addEventListener('timeupdate', function() {
+          if (video.duration) {
+            const percentage = (video.currentTime / video.duration) * 100;
+            progress.style.width = percentage + '%';
+            
+            const currentMinutes = Math.floor(video.currentTime / 60);
+            const currentSeconds = Math.floor(video.currentTime % 60);
+            const durationMinutes = Math.floor(video.duration / 60);
+            const durationSeconds = Math.floor(video.duration % 60);
+            
+            timeDisplay.textContent = 
+              `${currentMinutes.toString().padStart(2, '0')}:${currentSeconds.toString().padStart(2, '0')} / ${durationMinutes.toString().padStart(2, '0')}:${durationSeconds.toString().padStart(2, '0')}`;
+          }
+        });
+
+        // Video ended
+        video.addEventListener('ended', function() {
+          overlay.style.display = 'flex';
+          videoControls.style.display = 'none';
+          progress.style.width = '0%';
+        });
+
+        // Hide controls after inactivity
+        let controlsTimeout;
+        video.addEventListener('mousemove', function() {
+          if (!video.paused) {
+            videoControls.style.display = 'block';
+            clearTimeout(controlsTimeout);
+            controlsTimeout = setTimeout(() => {
+              if (!video.paused) {
+                videoControls.style.display = 'none';
+              }
+            }, 3000);
+          }
+        });
+
+        // Play button hover effect
+        playButton.addEventListener('mouseenter', function() {
+          this.style.transform = 'scale(1.1)';
+          this.style.background = 'rgba(255, 255, 255, 1)';
+        });
+
+        playButton.addEventListener('mouseleave', function() {
+          this.style.transform = 'scale(1)';
+          this.style.background = 'rgba(255, 255, 255, 0.9)';
+        });
+      }
+
+      // About Section Animation Effects
+      function setupAboutAnimations() {
+        const aboutSection = document.getElementById('about');
+        const corporateTitle = document.querySelector('.corporate-title');
+        const wordAnimates = document.querySelectorAll('.word-animate');
+        const paragraphAnimates = document.querySelectorAll('.paragraph-animate');
+        
+        if (!aboutSection) return;
+
+        // Intersection Observer for triggering animations
+        const observerOptions = {
+          root: null,
+          rootMargin: '-20% 0px -20% 0px',
+          threshold: 0.3
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              // Animate title with blur-to-focus effect
+              if (corporateTitle) {
+                corporateTitle.style.transition = 'all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                corporateTitle.style.opacity = '1';
+                corporateTitle.style.transform = 'translateY(0)';
+                corporateTitle.style.filter = 'blur(0px)';
+              }
+
+              // Animate each word with staggered delay
+              wordAnimates.forEach((word, index) => {
+                setTimeout(() => {
+                  word.style.transition = 'all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                  word.style.transform = 'translateY(0) scale(1)';
+                  word.style.opacity = '1';
+                  word.style.filter = 'blur(0px)';
+                  
+                  // Add pop effect
+                  word.style.transform = 'translateY(0) scale(1.05)';
+                  setTimeout(() => {
+                    word.style.transform = 'translateY(0) scale(1)';
+                  }, 200);
+                  
+                  // Special effect for highlight word
+                  if (word.classList.contains('highlight-word')) {
+                    word.style.animation = 'glow-pulse 2s ease-in-out infinite alternate';
+                  }
+                }, index * 150);
+              });
+
+              // Animate paragraphs
+              paragraphAnimates.forEach((paragraph, index) => {
+                setTimeout(() => {
+                  paragraph.style.transition = 'all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                  paragraph.style.opacity = '1';
+                  paragraph.style.transform = 'translateX(0)';
+                  paragraph.style.filter = 'blur(0px)';
+                }, 800 + (index * 300));
+              });
+
+              // Animate video container
+              const videoContainer = document.querySelector('.video-container-animate');
+              const videoControls = document.querySelector('.video-controls-animate');
+              const videoInfo = document.querySelector('.video-info-animate');
+              const vimeoLogo = document.querySelector('.vimeo-logo-animate');
+              const videoBorder = document.querySelector('.video-glow-border');
+
+              if (videoContainer) {
+                setTimeout(() => {
+                  videoContainer.style.opacity = '1';
+                  videoContainer.style.transform = 'translateX(0) scale(1)';
+                  videoContainer.style.filter = 'blur(0px)';
+                  
+                  // Show border glow
+                  if (videoBorder) {
+                    videoBorder.style.opacity = '0.6';
+                  }
+                }, 1200);
+
+                // Animate video controls
+                setTimeout(() => {
+                  if (videoControls) {
+                    videoControls.style.transition = 'all 0.8s ease';
+                    videoControls.style.opacity = '1';
+                    videoControls.style.transform = 'translateY(0)';
+                  }
+                }, 1800);
+
+                // Animate video info
+                setTimeout(() => {
+                  if (videoInfo) {
+                    videoInfo.style.transition = 'all 0.6s ease';
+                    videoInfo.style.opacity = '1';
+                    videoInfo.style.transform = 'translateY(0)';
+                  }
+                  if (vimeoLogo) {
+                    vimeoLogo.style.transition = 'all 0.6s ease';
+                    vimeoLogo.style.opacity = '1';
+                    vimeoLogo.style.transform = 'scale(1)';
+                  }
+                }, 2200);
+              }
+            }
+          });
+        }, observerOptions);
+
+        observer.observe(aboutSection);
+      }
+
+      // Service Cards Setup
+      function setupServiceCards() {
+        const serviceCards = document.querySelectorAll('.service-card');
+        
+        serviceCards.forEach(card => {
+          const video = card.querySelector('video');
+          const image = card.querySelector('.card-image');
+          
+          if (video && image) {
+            card.addEventListener('mouseenter', function() {
+              video.style.opacity = '1';
+              image.style.opacity = '0';
+              video.play();
+            });
+            
+            card.addEventListener('mouseleave', function() {
+              video.style.opacity = '0';
+              image.style.opacity = '1';
+              video.pause();
+              video.currentTime = 0;
+            });
+          }
+        });
+      }
+
+      // Add CSS animations
+      const animationStyles = document.createElement('style');
+      animationStyles.textContent = `
+        @keyframes glow-pulse {
+          0% {
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5), 0 0 30px rgba(212, 175, 55, 0.3);
+          }
+          100% {
+            text-shadow: 0 0 30px rgba(212, 175, 55, 0.8), 0 0 40px rgba(212, 175, 55, 0.5), 0 0 50px rgba(212, 175, 55, 0.3);
+          }
+        }
+
+        @keyframes float-in {
+          0% {
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            filter: blur(8px);
+          }
+          100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            filter: blur(0px);
+          }
+        }
+
+        .word-animate {
+          opacity: 0;
+          transform: translateY(20px) scale(0.9);
+          filter: blur(5px);
+        }
+
+        .highlight-word {
+          position: relative;
+        }
+
+        .highlight-word::after {
+          content: '';
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          width: 0%;
+          height: 3px;
+          background: linear-gradient(90deg, var(--color-gold), rgba(212, 175, 55, 0.5));
+          transition: width 1s ease-out 1.5s;
+        }
+
+        .about-content-animate.animated .highlight-word::after {
+          width: 100%;
+        }
+
+        /* Hover effects */
+        .word-animate:hover {
+          transform: translateY(-2px) scale(1.02) !important;
+          transition: all 0.3s ease !important;
+        }
+
+        .highlight-word:hover {
+          color: #FFD700 !important;
+          text-shadow: 0 0 25px rgba(255, 215, 0, 0.8) !important;
+        }
+
+        /* Video Animation Effects */
+        @keyframes border-glow {
+          0% {
+            opacity: 0.3;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+          }
+          100% {
+            opacity: 0.8;
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.6), 0 0 60px rgba(212, 175, 55, 0.3);
+          }
+        }
+
+        @keyframes progress-fill {
+          0% { width: 0%; }
+          100% { width: 100%; }
+        }
+
+        @keyframes pulse-glow {
+          0%, 100% {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+          }
+          50% {
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.8), 0 0 60px rgba(212, 175, 55, 0.4);
+          }
+        }
+
+        /* Video Container Hover Effects */
+        .video-container-animate:hover {
+          transform: translateX(0) scale(1.02) !important;
+          box-shadow: 0 25px 80px rgba(0,0,0,0.4) !important;
+        }
+
+        .video-container-animate:hover .video-hover-overlay {
+          opacity: 1;
+        }
+
+        .video-container-animate:hover .about-video {
+          transform: scale(1.05);
+          filter: brightness(1.1) contrast(1.1);
+        }
+
+        .video-container-animate:hover .video-play-overlay {
+          opacity: 1;
+          transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-container-animate:hover .video-glow-border {
+          animation: pulse-glow 1.5s ease-in-out infinite alternate;
+        }
+
+        /* Control Button Effects */
+        .control-button:hover {
+          background: rgba(212, 175, 55, 0.8) !important;
+          transform: scale(1.15);
+          box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .control-button:active {
+          transform: scale(0.95);
+        }
+
+        /* Play Button Effects */
+        .video-play-overlay:hover {
+          background: rgba(212, 175, 55, 0.9) !important;
+          transform: translate(-50%, -50%) scale(1.2) !important;
+          box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        .video-play-overlay:hover div {
+          border-left-color: white !important;
+        }
+
+        /* Progress Bar Animation */
+        .video-progress-bar {
+          box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Info Elements Hover */
+        .video-info-animate:hover,
+        .vimeo-logo-animate:hover {
+          background: rgba(212, 175, 55, 0.2) !important;
+          transform: translateY(-2px) scale(1.05) !important;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+          .word-animate {
+            margin: 2px;
+          }
+          
+          .video-container-animate {
+            transform: translateX(0) scale(1) !important;
+            filter: blur(0px) !important;
+            opacity: 1 !important;
+          }
+          
+          .control-button {
+            width: 24px !important;
+            height: 24px !important;
+          }
+          
+          .video-play-overlay {
+            width: 50px !important;
+            height: 50px !important;
+          }
+        }
+      `;
+      document.head.appendChild(animationStyles);
+
+      // Service Cards Interactive Video/Image Effects
+      function setupServiceCards() {
+        const serviceCards = document.querySelectorAll('.service-card');
+        
+        serviceCards.forEach(card => {
+          const video = card.querySelector('video');
+          const image = card.querySelector('.card-image');
+
+          // Mouse enter - play video immediately
+          card.addEventListener('mouseenter', function() {
+            if (video) {
+              video.play().then(() => {
+                card.classList.add('video-active');
+              }).catch(e => console.log('Video play failed:', e));
+            }
+          });
+
+          // Mouse leave - stop video and show image
+          card.addEventListener('mouseleave', function() {
+            if (video) {
+              video.pause();
+              video.currentTime = 0; // Reset to beginning
+            }
+            
+            card.classList.remove('video-active');
+            
+            // Show image when cursor leaves
+            if (image) {
+              image.style.opacity = '1';
+            }
+          });
+
+          // Ensure video is muted and ready
+          if (video) {
+            video.muted = true;
+            video.preload = 'metadata';
+            
+            // Reset video when it ends
+            video.addEventListener('ended', function() {
+              this.currentTime = 0;
+              this.play().catch(e => console.log('Video replay failed:', e));
+            });
+          }
+
+          // Show image by default
+          if (image) {
+            image.style.opacity = '1';
+          }
+        });
+      }
+
+      // Add simple CSS for service card interactions
+      const serviceCardStyles = document.createElement('style');
+      serviceCardStyles.textContent = `
+        /* Simple Service Card Interactions */
+        .service-card {
+          position: relative;
+          overflow: hidden;
+        }
+
+        /* No animations - instant transitions */
+        .service-card .card-image,
+        .service-card video {
+          transition: none;
+        }
+
+        /* Content styling */
+        .service-card .content {
+          background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+          padding: 30px 20px 20px;
+        }
+      `;
+      document.head.appendChild(serviceCardStyles);
+
+      // Functions are now initialized in the main DOMContentLoaded listener above
+    </script>
+
+    <main style="width: 100%; max-width: 100vw; overflow-x: hidden; box-sizing: border-box;">
+        <!-- Hero Section -->
+        <section id="home" style="position: relative; height: 100vh; display: flex; align-items: center; justify-content: flex-start; padding: 0 60px; color: white; width: 100%; max-width: 100vw; overflow: hidden;">
+          <!-- Background Video -->
+          <video autoplay muted loop playsinline style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -2;">
+            <source src="assets/videos/music event 4.mp4" type="video/mp4">
+          </video>
+          
+          <!-- Dark Overlay -->
+          <div style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); z-index: -1;"></div>
+          
+          <!-- Content -->
+          <div style="max-width: 800px; z-index: 1;">
+            <h1 style="font-size: clamp(48px, 8vw, 80px); font-weight: 900; margin: 0 0 30px 0; line-height: 1.1; text-transform: uppercase; letter-spacing: -2px;">Where Your Story<br>Finds Its True Expression.</h1>
+            <p style="font-size: 20px; line-height: 1.6; margin: 0 0 40px 0; opacity: 0.9; max-width: 500px;">We Bring Your Vision to Life Through Visual Storytelling.</p>
+            
+            <!-- Play Showreel Button -->
+            <button style="background: var(--color-gold); color: #1a1a1a; padding: 16px 32px; border: none; border-radius: 0; font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(210, 182, 138, 0.3);" onmouseover="this.style.background='#B89C72'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(210, 182, 138, 0.4)'" onmouseout="this.style.background='var(--color-gold)'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(210, 182, 138, 0.3)'">
+              PLAY SHOWREEL
+            </button>
+            
+            </div>
+          </div>
+        </div>
+        </section>
+
+        <!-- Client Logos Section -->
+        <section class="clients" style="background: #f8f9fa; padding: 60px 0; text-align: center;">
+          <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <!-- Header Text -->
+            <p style="color: var(--color-gold); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 30px 0;">WE'VE PRODUCED BRANDED CONTENT VIDEOS FOR:</p>
+            
+            <div class="marquee" style="position: relative; overflow: hidden;">
+              <div class="track" style="display: flex; gap: 42px; align-items: center; padding: 12px 24px; animation: scroll 26s linear infinite;">
+                <div class="logo" style="height: 40px; display: flex; align-items: center; opacity: 0.9;">FATFACE</div>
+                <div class="logo" style="height: 40px; display: flex; align-items: center; opacity: 0.9;"><img alt="Google" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" style="max-height: 40px; height: 40px;"></div>
+                <div class="logo" style="height: 40px; display: flex; align-items: center; opacity: 0.9;"><img alt="Heineken" src="https://upload.wikimedia.org/wikipedia/commons/5/59/Heineken_logo.svg" style="max-height: 40px; height: 40px;"></div>
+                <div class="logo" style="height: 40px; display: flex; align-items: center; opacity: 0.9;"><img alt="HP" src="https://upload.wikimedia.org/wikipedia/commons/3/3a/HP_logo_2012.svg" style="max-height: 40px; height: 40px;"></div>
+                <div class="logo" style="height: 40px; display: flex; align-items: center; opacity: 0.9;"><img alt="Booking.com" src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Booking.com_logo.svg" style="max-height: 40px; height: 40px;"></div>
+                <div class="logo" style="height: 40px; display: flex; align-items: center; opacity: 0.9;"><img alt="Hasbro" src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Hasbro_logo.svg" style="max-height: 40px; height: 40px;"></div>
+
+                <div class="logo" style="height: 40px; display: flex; align-items: center; opacity: 0.9;">FATFACE</div>
+                <div class="logo" style="height: 40px; display: flex; align-items: center; opacity: 0.9;"><img alt="Google" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" style="max-height: 40px; height: 40px;"></div>
+                <div class="logo" style="height: 40px; display: flex; align-items: center; opacity: 0.9;"><img alt="Heineken" src="https://upload.wikimedia.org/wikipedia/commons/5/59/Heineken_logo.svg" style="max-height: 40px; height: 40px;"></div>
+                <div class="logo" style="height: 40px; display: flex; align-items: center; opacity: 0.9;"><img alt="HP" src="https://upload.wikimedia.org/wikipedia/commons/3/3a/HP_logo_2012.svg" style="max-height: 40px; height: 40px;"></div>
+                <div class="logo" style="height: 40px; display: flex; align-items: center; opacity: 0.9;"><img alt="Booking.com" src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Booking.com_logo.svg" style="max-height: 40px; height: 40px;"></div>
+                <div class="logo" style="height: 40px; display: flex; align-items: center; opacity: 0.9;"><img alt="Hasbro" src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Hasbro_logo.svg" style="max-height: 40px; height: 40px;"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Showreels Section -->
+        <section id="showreels" style="padding: 80px 60px; background: #f8f9fa;">
+          <div style="max-width: 1400px; margin: 0 auto;">
+            <div style="position: relative; height: 90vh; display: flex; align-items: center; justify-content: center; color: white; overflow: hidden; border-radius: 20px; background: #000; box-shadow: 0 20px 40px rgba(0,0,0,0.3);">
+              <!-- Video Player -->
+              <video id="showreelVideo" style="width: 100%; height: 150%; object-fit: cover; border-radius: 20px;" poster="assets/images/showreel-thumbnail.jpg">
+                <source src="assets/videos/genkru.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              
+              <!-- Video Controls Overlay -->
+              <div id="videoOverlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.4); display: flex; align-items: center; justify-content: center; border-radius: 20px; cursor: pointer; transition: all 0.3s ease;">
+                <!-- Orange Left Border -->
+                <div style="position: absolute; left: 0; top: 0; width: 8px; height: 100%; background: var(--color-gold); z-index: 1; border-radius: 8px 0 0 8px;"></div>
+                
+                <!-- Play Button -->
+                <div id="playButton" style="width: 100px; height: 100px; background: rgba(255, 255, 255, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 12px 40px rgba(0,0,0,0.4);">
+                  <div style="width: 0; height: 0; border-left: 30px solid #333; border-top: 18px solid transparent; border-bottom: 18px solid transparent; margin-left: 6px;"></div>
+                </div>
+                
+                <!-- Title Overlay -->
+                <div style="position: absolute; bottom: 40px; left: 40px; right: 40px;">
+                  <h2 style="font-size: clamp(40px, 8vw, 80px); font-weight: 900; margin: 0; line-height: 1; text-transform: uppercase; letter-spacing: -2px; text-shadow: 0 4px 20px rgba(0,0,0,0.8); font-style: italic; color: white;">SHOWREELS</h2>
+                  <p style="font-size: 18px; margin-top: 10px; opacity: 0.9; text-shadow: 0 2px 10px rgba(0,0,0,0.8);">Watch our latest video productions</p>
+                </div>
+              </div>
+              
+              <!-- Video Controls -->
+              <div id="videoControls" style="position: absolute; bottom: 20px; left: 20px; right: 20px; display: none; background: rgba(0,0,0,0.7); padding: 15px; border-radius: 10px; backdrop-filter: blur(10px);">
+                <div style="display: flex; align-items: center; gap: 15px;">
+                  <button id="pauseButton" style="width: 40px; height: 40px; background: var(--color-gold); border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; color: white;">
+                    <div style="width: 3px; height: 16px; background: white; margin-right: 2px;"></div>
+                    <div style="width: 3px; height: 16px; background: white;"></div>
+                  </button>
+                  <div style="flex: 1; height: 4px; background: rgba(255,255,255,0.3); border-radius: 2px; position: relative; cursor: pointer;" id="progressBar">
+                    <div id="progress" style="height: 100%; background: var(--color-gold); border-radius: 2px; width: 0%; transition: width 0.1s;"></div>
+                  </div>
+                  <span id="timeDisplay" style="color: white; font-size: 14px; min-width: 80px;">00:00 / 00:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </section>
+
+        <!-- About Us Section - Theory Film Style -->
+        <section id="about" style="background: #f0f0f0; padding: 60px; position: relative; overflow: hidden;">
+          <div style="max-width: 1400px; margin: 0 auto;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: flex-start;">
+              <!-- Left side - Content -->
+              <div class="about-content-animate" style="padding-right: 40px;">
+                <h2 class="corporate-title" style="font-size: clamp(32px, 5vw, 56px); font-weight: 900; margin: 0 0 40px 0; line-height: 0.95; text-transform: uppercase; letter-spacing: -2px; color: #1a1a1a; font-style: italic; opacity: 0; transform: translateY(50px); filter: blur(10px);">
+                  <span class="word-animate" style="display: inline-block;">Turning</span> 
+                  <span class="word-animate" style="display: inline-block;">Every</span><br>
+                  <span class="word-animate highlight-word" style="display: inline-block; color: var(--color-gold); text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);">PRODUCTION</span> 
+                  <span class="word-animate" style="display: inline-block;">Vision</span><br>
+                  <span class="word-animate" style="display: inline-block;">INTO</span> 
+                  <span class="word-animate" style="display: inline-block;">A</span> 
+                  <span class="word-animate" style="display: inline-block;">Lasting</span> 
+                  <span class="word-animate" style="display: inline-block;">Masterpiece.</span>
+                </h2>
+                <p class="paragraph-animate" style="font-size: 14px; line-height: 1.5; color: #333; margin: 0 0 24px 0; text-align: justify; font-weight: 400; opacity: 0; transform: translateX(-30px); filter: blur(5px);">Bangsawan Pictures helps brands, events, and individuals tell their stories through impactful visuals. We have built our reputation as a trusted creative partner by delivering work that blends artistry, professionalism, and a deep understanding of our clients’ goals.</p>
+                <p class="paragraph-animate" style="font-size: 14px; line-height: 1.5; color: #333; margin: 0 0 40px 0; text-align: justify; font-weight: 400; opacity: 0; transform: translateX(-30px); filter: blur(5px);">From corporate showcases and promotional campaigns to memorable events and cultural narratives, our team has the creativity and expertise to bring your vision to life. With Bangsawan Pictures, you can trust that every story will be told with clarity, elegance, and impact.</p>
+              </div>
+              <!-- Right side - Video with black frame -->
+              <div class="video-container-animate" style="position: relative; background: #000000; padding: 0; border-radius: 12px; overflow: hidden; aspect-ratio: 16/10; opacity: 0; transform: translateX(50px) scale(0.95); filter: blur(8px); box-shadow: 0 20px 60px rgba(0,0,0,0.3); transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);">
+                <!-- Animated border glow -->
+                <div class="video-glow-border" style="position: absolute; top: -2px; left: -2px; right: -2px; bottom: -2px; background: linear-gradient(45deg, var(--color-gold), transparent, var(--color-gold)); border-radius: 14px; opacity: 0; z-index: -1; animation: border-glow 3s ease-in-out infinite alternate;"></div>
+                
+                <video class="about-video" src="assets/videos/index-aboutus.mp4" autoplay muted loop playsinline style="width: 100%; height: 100%; object-fit: cover; display: block; transition: all 0.5s ease;"></video>
+                
+                <!-- Hover overlay effect -->
+                <div class="video-hover-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(0, 0, 0, 0.2)); opacity: 0; transition: all 0.4s ease; pointer-events: none;"></div>
+                
+                <!-- Video controls overlay -->
+                <div class="video-controls-animate" style="position: absolute; top: 15px; right: 15px; display: flex; gap: 8px; z-index: 10; opacity: 0; transform: translateY(-10px);">
+                  <div class="control-button" style="width: 28px; height: 28px; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.2);">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                  </div>
+                  <div class="control-button" style="width: 28px; height: 28px; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.2);">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  </div>
+                  <div class="control-button" style="width: 28px; height: 28px; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.2);">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+                  </div>
+                </div>
+                
+                <!-- Animated progress bar -->
+                <div class="video-progress-bar" style="position: absolute; bottom: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, var(--color-gold), #FFD700); z-index: 10; animation: progress-fill 8s linear infinite;"></div>
+                
+                <!-- Bottom info with slide-up animation -->
+                <div class="video-info-animate" style="position: absolute; bottom: 15px; right: 15px; color: white; font-size: 11px; font-weight: 500; text-shadow: 0 1px 3px rgba(0,0,0,0.8); opacity: 0; transform: translateY(10px); background: rgba(0,0,0,0.3); padding: 4px 8px; border-radius: 4px; backdrop-filter: blur(5px);">
+                  Client: Jigsaw Clothing Brand Film
+                </div>
+                
+                <!-- Vimeo logo with fade-in -->
+                <div class="vimeo-logo-animate" style="position: absolute; bottom: 15px; left: 15px; color: white; font-size: 12px; font-weight: 600; text-shadow: 0 1px 3px rgba(0,0,0,0.8); opacity: 0; transform: scale(0.8); background: rgba(0,0,0,0.3); padding: 4px 8px; border-radius: 4px; backdrop-filter: blur(5px);">
+                  vimeo
+                </div>
+                
+                <!-- Play button overlay for interaction -->
+                <div class="video-play-overlay" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 60px; height: 60px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0; cursor: pointer; transition: all 0.3s ease; z-index: 15;">
+                  <div style="width: 0; height: 0; border-left: 20px solid #333; border-top: 12px solid transparent; border-bottom: 12px solid transparent; margin-left: 4px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Services: Irregular grid layout like Theory Film -->
+        <section id="services" style="background: #2c3e50; padding: 80px 60px; color: white;">
+          <style>
+            #services .grid{ 
+              display: grid; 
+              grid-template-columns: repeat(4, 1fr); 
+              grid-template-rows: repeat(3, 200px); 
+              gap: 12px; 
+              max-width: 1400px;
+              margin: 0 auto;
+            }
+            #services .card{ 
+              position: relative; 
+              overflow: hidden; 
+              color: white; 
+              transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+              cursor: pointer;
+              border: 3px solid white;
+              background: linear-gradient(135deg, #2c3e50, #34495e);
+            }
+            #services .card:hover{ 
+              border-color: var(--color-gold);
+            }
+            
+            /* Card Image - Shows by default and when cursor leaves */
+            #services .card .card-image{ 
+              position: absolute; 
+              inset: 0; 
+              width: 100%; 
+              height: 100%; 
+              object-fit: cover;
+              opacity: 1;
+              z-index: 2;
+            }
+            
+            /* Card Video - Shows when cursor enters */
+            #services .card video{ 
+              position: absolute; 
+              inset: 0; 
+              width: 100%; 
+              height: 100%; 
+              object-fit: cover;
+              opacity: 0;
+              z-index: 1;
+            }
+            #services .card.video-active video{ 
+              opacity: 1;
+              z-index: 3;
+            }
+            #services .card.video-active .card-image{ 
+              opacity: 0;
+            }
+            #services .card .scrim{ 
+              position: absolute; 
+              inset: 0; 
+              background: rgba(0,0,0,0.7);
+              transition: opacity 0.3s ease;
+            }
+            #services .card:hover .scrim{ 
+              opacity: 0.3;
+            }
+            #services .content{ 
+              position: relative; 
+              z-index: 4; 
+              padding: 20px; 
+              height: 100%; 
+              display: flex; 
+              flex-direction: column; 
+              justify-content: center;
+              text-align: center;
+              transition: opacity 0.3s ease;
+              pointer-events: none;
+            }
+            #services .card:hover .content{ 
+              opacity: 1;
+            }
+            #services .content h3{ 
+              margin: 0; 
+              font-weight: 900; 
+              text-shadow: 0 2px 12px rgba(0,0,0,0.8); 
+              font-size: clamp(16px, 2.5vw, 24px);
+              text-transform: uppercase;
+              letter-spacing: 1px;
+              font-style: italic;
+            }
+            #services .card a{ 
+              position: absolute; 
+              inset: 0; 
+              z-index: 3; 
+            }
+            
+            /* Irregular grid positioning like Theory Film - 8 cards */
+            #services .card:nth-child(1) { grid-column: 1 / 3; grid-row: 1; }
+            #services .card:nth-child(2) { grid-column: 3 / 5; grid-row: 1; }
+            #services .card:nth-child(3) { grid-column: 1; grid-row: 2; }
+            #services .card:nth-child(4) { grid-column: 2; grid-row: 2; }
+            #services .card:nth-child(5) { grid-column: 3; grid-row: 2; }
+            #services .card:nth-child(6) { grid-column: 4; grid-row: 2; }
+            #services .card:nth-child(7) { grid-column: 1 / 3; grid-row: 3; }
+            #services .card:nth-child(8) { grid-column: 3 / 5; grid-row: 3; }
+            
+            @media (max-width: 900px){ 
+              #services .grid{ 
+                grid-template-columns: 1fr; 
+                grid-template-rows: auto;
+              } 
+              #services .card{ 
+                grid-column: 1 !important; 
+                grid-row: auto !important; 
+                min-height: 200px;
+              }
+            }
+          </style>
+          <div class="grid">
+            <div class="card service-card" data-service="short-film">
+              <img class="card-image" src="assets/images/Momen indah yang diCIPTAkan bersama semua yang terlibat dalam menjayakan KONSERT CIPTA DATO’ M.  (1).jpg" alt="Short Film & TVC Preview">
+              <video src="assets/videos/short film charity.mp4" muted loop playsinline></video>
+              <div class="scrim"></div>
+              <div class="content">
+                <h3>Short Film & TVC</h3>
+              </div>
+              <a href="services/short-film-tvc.html" aria-label="Short Film TVC"></a>
+            </div>
+            <div class="card service-card" data-service="music-videos">
+              <img class="card-image" src="assets/images/get (1).jpg" alt="Music Videos Preview">
+              <video src="assets/videos/concert 1.mp4" muted loop playsinline></video>
+              <div class="scrim"></div>
+              <div class="content">
+                <h3>Music Videos</h3>
+              </div>
+              <a href="services/music-video.html" aria-label="Music Video"></a>
+            </div>
+            <div class="card service-card" data-service="wedding">
+              <img class="card-image" src="assets/images/wedding.jpg" alt="Wedding Films Preview">
+              <video src="assets/videos/(The Wedding) ANI & HAKIMI.mp4" muted loop playsinline></video>
+              <div class="scrim"></div>
+              <div class="content">
+                <h3>Wedding Films</h3>
+              </div>
+              <a href="services/wedding.html" aria-label="Wedding"></a>
+            </div>
+            <div class="card service-card" data-service="corporate">
+              <img class="card-image" src="assets/images/anwar.jpg" alt="Corporate Events Preview">
+              <video src="assets/videos/corparate merdeka 2024.mp4" muted loop playsinline></video>
+              <div class="scrim"></div>
+              <div class="content">
+                <h3>Corporate Events</h3>
+              </div>
+              <a href="services/corporate-event.html" aria-label="Corporate Event"></a>
+            </div>
+            <div class="card service-card" data-service="social-media">
+              <img class="card-image" src="assets/images/social media banner.jpg" alt="Social Media Content Preview">
+              <video src="assets/videos/secial media 1.mp4" muted loop playsinline></video>
+              <div class="scrim"></div>
+              <div class="content">
+                <h3>Social Media Content</h3>
+              </div>
+              <a href="services/social-media-campaign.html" aria-label="Social Media Campaign"></a>
+            </div>
+            <div class="card service-card" data-service="travel">
+              <img class="card-image" src="assets/images/judika 1.jpg" alt="Travel & Documentary Preview">
+              <video src="assets/videos/banner.mp4" muted loop playsinline></video>
+              <div class="scrim"></div>
+              <div class="content">
+                <h3>Travel & Documentary</h3>
+              </div>
+              <a href="services/travel-video.html" aria-label="Travel Video"></a>
+            </div>
+            <div class="card service-card" data-service="music-events">
+              <img class="card-image" src="assets/images/get (2).jpg" alt="Music Events Preview">
+              <video src="assets/videos/music event 4.mp4" muted loop playsinline></video>
+              <div class="scrim"></div>
+              <div class="content">
+                <h3>Music Events</h3>
+              </div>
+              <a href="services/music-event.html" aria-label="Music Event"></a>
+            </div>
+            <div class="card service-card" data-service="montage">
+              <img class="card-image" src="assets/images/music video.jpg" alt="Montage Preview">
+              <video src="assets/videos/elite 2.mp4" muted loop playsinline></video>
+              <div class="scrim"></div>
+              <div class="content">
+                <h3>Montage</h3>
+              </div>
+              <a href="services/montage.html" aria-label="Montage"></a>
+            </div>
+          </div>
+        </section>
+
+
+        <!-- Pricing/Services Section -->
+        <section id="pricing" class="fullwidth" style="background: transparent; color:var(--color-onyx); padding: 0; height: 100vh; display: flex; flex-direction: column; justify-content: center; margin: 0; position: relative; overflow: hidden;">
+          <!-- Enhanced Background decoration with animation -->
+          <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: linear-gradient(45deg, rgba(95, 122, 138, 0.1), rgba(95, 122, 138, 0.1)); border-radius: 50%; z-index: 0; animation: pulse 4s ease-in-out infinite;"></div>
+          <div style="position: absolute; bottom: -30px; left: -30px; width: 150px; height: 150px; background: linear-gradient(45deg, rgba(95, 122, 138, 0.08), rgba(95, 122, 138, 0.08)); border-radius: 50%; z-index: 0; animation: pulse 4s ease-in-out infinite 2s;"></div>
+          <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 300px; height: 300px; background: radial-gradient(circle, rgba(210, 182, 154, 0.05) 0%, transparent 70%); border-radius: 50%; z-index: 0; animation: rotate 20s linear infinite;"></div>
+          
+          <!-- Floating particles -->
+          <div style="position: absolute; top: 20%; left: 10%; width: 4px; height: 4px; background: var(--color-teal); border-radius: 50%; opacity: 0.6; animation: floatParticle 6s ease-in-out infinite;"></div>
+          <div style="position: absolute; top: 70%; right: 15%; width: 6px; height: 6px; background: var(--color-navy); border-radius: 50%; opacity: 0.4; animation: floatParticle 8s ease-in-out infinite 1s;"></div>
+          <div style="position: absolute; top: 40%; right: 25%; width: 3px; height: 3px; background: var(--color-beige); border-radius: 50%; opacity: 0.5; animation: floatParticle 7s ease-in-out infinite 3s;"></div>
+          
+          <div style="max-width:1200px; margin:0 auto; position: relative; z-index: 1; padding: 0 20px;">
+            <p style="text-align:center; margin:0 0 20px; font-size:14px; font-weight:600; color:var(--color-gold); text-transform:uppercase; letter-spacing:2px;">OUR SERVICES</p>
+            <h2 style="text-align:center; margin:0 0 60px; font-weight:900; font-size:clamp(32px, 5vw, 48px); color:var(--color-onyx); letter-spacing:-0.5px; font-style: italic;">WHAT WE DO:</h2>
+            
+            <!-- Single Row - 3 Cards -->
+            <div style="display:grid; grid-template-columns: repeat(3, 1fr); gap:40px;">
+              
+              <!-- IDEAS & CREATIVE -->
+              <div style="text-align:center; padding:50px 40px; background: white; border-radius:0; box-shadow:0 10px 40px rgba(0,0,0,0.1); border:1px solid rgba(0,0,0,0.05); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 60px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.1)'">
+                <div style="width: 80px; height: 80px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; border: 2px solid #e9ecef;">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12l2 2 4-4"/>
+                    <path d="M21 12c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z"/>
+                    <path d="M3 12c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z"/>
+                    <path d="M12 21c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z"/>
+                    <path d="M12 3c.552 0 1-.448 1-1s-.448-1-1-1-1 .448-1 1 .448 1 1 1z"/>
+                    <circle cx="12" cy="12" r="3"/>
+                  </svg>
+                </div>
+                <h3 style="font-size:22px; font-weight:800; color:var(--color-onyx); margin:0 0 20px; text-transform: uppercase; letter-spacing: 1px; font-style: italic;">IDEAS & CREATIVE</h3>
+                <p style="font-size:14px; line-height:1.6; color:#666; margin:0; text-align: center;">Looking for a clear and powerful direction? Our creative team works with you to shape ideas into compelling concepts that set the foundation for impactful storytelling.</p>
+              </div>
+
+              <!-- PRE-PRODUCTION -->
+              <div style="text-align:center; padding:50px 40px; background: white; border-radius:0; box-shadow:0 10px 40px rgba(0,0,0,0.1); border:1px solid rgba(0,0,0,0.05); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 60px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.1)'">
+                <div style="width: 80px; height: 80px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; border: 2px solid #e9ecef;">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                    <polyline points="14,2 14,8 20,8"/>
+                    <line x1="16" y1="13" x2="8" y2="13"/>
+                    <line x1="16" y1="17" x2="8" y2="17"/>
+                    <polyline points="10,9 9,9 8,9"/>
+                  </svg>
+                </div>
+                <h3 style="font-size:22px; font-weight:800; color:var(--color-onyx); margin:0 0 20px; text-transform: uppercase; letter-spacing: 1px; font-style: italic;">PRE-PRODUCTION</h3>
+                <p style="font-size:14px; line-height:1.6; color:#666; margin:0; text-align: center;">Every great story begins with strong preparation. From storyboarding and casting to location scouting and logistics, we carefully plan every detail to ensure a seamless production process.</p>
+              </div>
+
+              <!-- PRODUCTION -->
+              <div style="text-align:center; padding:50px 40px; background: white; border-radius:0; box-shadow:0 10px 40px rgba(0,0,0,0.1); border:1px solid rgba(0,0,0,0.05); transition: all 0.3s ease; cursor: pointer;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='0 20px 60px rgba(0,0,0,0.15)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 10px 40px rgba(0,0,0,0.1)'">
+                <div style="width: 80px; height: 80px; background: #f8f9fa; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; border: 2px solid #e9ecef;">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="23 7 16 12 23 17 23 7"/>
+                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
+                  </svg>
+                </div>
+                <h3 style="font-size:22px; font-weight:800; color:var(--color-onyx); margin:0 0 20px; text-transform: uppercase; letter-spacing: 1px; font-style: italic;">PRODUCTION</h3>
+                <p style="font-size:14px; line-height:1.6; color:#666; margin:0; text-align: center;">Bringing your vision to life requires precision and collaboration. We bring together the right people, technology, and expertise to deliver a smooth shoot and exceptional results on set.</p>
+              </div>
+            </div>
+          </div>
+          
+          <style>
+            @keyframes float {
+              0%, 100% { transform: translateY(0px); }
+              50% { transform: translateY(-10px); }
+            }
+            
+            @keyframes pulse {
+              0%, 100% { transform: scale(1); opacity: 0.8; }
+              50% { transform: scale(1.05); opacity: 1; }
+            }
+            
+            @keyframes rotate {
+              0% { transform: translate(-50%, -50%) rotate(0deg); }
+              100% { transform: translate(-50%, -50%) rotate(360deg); }
+            }
+            
+            @keyframes floatParticle {
+              0%, 100% { transform: translateY(0px) translateX(0px); opacity: 0.6; }
+              25% { transform: translateY(-15px) translateX(5px); opacity: 1; }
+              50% { transform: translateY(-10px) translateX(-5px); opacity: 0.8; }
+              75% { transform: translateY(-20px) translateX(3px); opacity: 0.9; }
+            }
+            
+            @keyframes shimmer {
+              0% { transform: translateX(-100%) rotate(45deg); opacity: 0; }
+              50% { opacity: 0.6; }
+              100% { transform: translateX(100%) rotate(45deg); opacity: 0; }
+            }
+            
+            @keyframes gradientShift {
+              0%, 100% { background: linear-gradient(135deg, #5F7A8A, #5F7A8A); }
+              50% { background: linear-gradient(135deg, #5F7A8A, #5F7A8A); }
+            }
+            
+            @keyframes badgeGlow {
+              0% { box-shadow: 0 4px 15px rgba(95, 122, 138, 0.3); }
+              100% { box-shadow: 0 6px 25px rgba(95, 122, 138, 0.5), 0 0 20px rgba(95, 122, 138, 0.3); }
+            }
+            
+            .pricing-card:hover {
+              transform: translateY(-12px) scale(1.02);
+              box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+              border-color: rgba(95, 122, 138, 0.3);
+            }
+            
+            /* Corporate Video card specific hover (it has translateY(-8px) initially) */
+            .pricing-card[style*="translateY(-8px)"]:hover {
+              transform: translateY(-20px) scale(1.02);
+            }
+            
+            /* Shimmer effect on hover */
+            .pricing-card:hover > div:first-child {
+              opacity: 1;
+            }
+            
+            /* Glow effect on hover */
+            .pricing-card:hover > div:nth-child(2) {
+              opacity: 1;
+            }
+            
+            /* Icon scale and rotate on hover */
+            .pricing-card:hover div[style*="font-size:56px"] {
+              transform: scale(1.1) rotate(5deg);
+            }
+            
+            /* Feature list slide effect */
+            .pricing-card:hover p {
+              transform: translateX(5px);
+            }
+            
+            /* Checkmark color change */
+            .pricing-card:hover p span {
+              color: var(--color-navy) !important;
+            }
+            
+            @media (max-width: 900px) {
+              #pricing .pricing-card {
+                grid-column: 1 / -1 !important;
+                grid-row: auto !important;
+                min-height: 200px;
+              }
+              
+              #pricing > div > div {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                gap: 20px;
+              }
+            }
+            
+            @media (max-width: 768px) {
+              #pricing {
+                padding: 60px 15px !important;
+              }
+              
+              #pricing .pricing-card {
+                padding: 30px 20px !important;
+              }
+              
+              @keyframes floatParticle {
+                0%, 100% { transform: translateY(0px); opacity: 0.4; }
+                50% { transform: translateY(-10px); opacity: 0.8; }
+              }
+            }
+          </style>
+        </section>
+
+
+        <!-- Recent Work Grid -->
+        <section id="work" style="background: #2c3e50; padding: 80px 0 80px 0; color: white;">
+          <h2 style="text-align: center; margin: 0 0 60px 0; font-weight: 900; font-size: clamp(42px, 6vw, 56px); color: white; font-style: italic; text-transform: uppercase; letter-spacing: -1px;">RECENT WORK:</h2>
+          
+          <style>
+            #work .work-container {
+              display: grid;
+              grid-template-columns: 0.3fr 12fr;
+              gap: 5px;
+              max-width: 100vw;
+              margin: 0;
+              padding: 0 0 0 20px;
+            }
+            
+            #work .work-left-column {
+              position: relative;
+            }
+            
+            #work .work-slider-container {
+              position: relative;
+              overflow: hidden;
+            }
+            
+            /* Slider Navigation Buttons - Theory Films Style */
+            #work .slider-nav {
+              position: absolute;
+              bottom: 20px;
+              left: 20px;
+              display: flex;
+              gap: 10px;
+              z-index: 10;
+            }
+            
+            #work .slider-btn {
+              width: 50px;
+              height: 50px;
+              background: rgba(255, 107, 53, 0.9);
+              border: none;
+              border-radius: 50%;
+              color: white;
+              font-size: 18px;
+              cursor: pointer;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: all 0.3s ease;
+              box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            }
+            
+            #work .slider-btn:hover {
+              background: rgba(255, 107, 53, 1);
+              transform: scale(1.1);
+              box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            }
+            
+            #work .slider-btn:active {
+              transform: scale(0.95);
+            }
+            
+            #work .work-grid {
+              display: grid;
+              grid-template-columns: repeat(8, 1fr);
+              grid-template-rows: 1fr;
+              gap: 4px;
+              width: 200%;
+              margin: 0;
+              transition: transform 0.5s ease;
+            }
+            
+            #work .work-item {
+              position: relative;
+              height: 70vh;
+              overflow: hidden;
+              cursor: pointer;
+              border: 2px solid white;
+              transition: all 0.3s ease;
+            }
+            
+            #work .work-item:hover {
+              transform: scale(1.02);
+              box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            }
+            
+            #work .work-item video {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              opacity: 0;
+              transition: opacity 0.3s ease;
+            }
+            
+            #work .work-item:hover video {
+              opacity: 1;
+            }
+            
+            #work .work-item .poster {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              transition: opacity 0.3s ease;
+            }
+            
+            #work .work-item:hover .poster {
+              opacity: 0;
+            }
+            
+            #work .work-item .overlay {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: rgba(0,0,0,0.4);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              transition: opacity 0.3s ease;
+            }
+            
+            #work .work-item:hover .overlay {
+              opacity: 0.7;
+            }
+            
+            #work .work-item .brand-name {
+              color: white;
+              font-size: clamp(28px, 5vw, 48px);
+              font-weight: 900;
+              text-transform: uppercase;
+              letter-spacing: 4px;
+              text-shadow: 0 4px 16px rgba(0,0,0,0.9);
+              font-style: italic;
+            }
+            
+            @media (max-width: 1200px) {
+              #work .work-container {
+                grid-template-columns: 0.2fr 12fr;
+                gap: 5px;
+                padding: 0 0 0 15px;
+              }
+              
+              #work .work-grid {
+                grid-template-columns: repeat(8, 1fr);
+                grid-template-rows: 1fr;
+                gap: 3px;
+                width: 200%;
+              }
+              
+              #work .work-item {
+                height: 65vh;
+              }
+            }
+            
+            @media (max-width: 768px) {
+              #work .work-container {
+                grid-template-columns: 0.1fr 12fr;
+                gap: 0;
+                padding: 0 0 0 10px;
+              }
+              
+              #work .work-left-column {
+                min-width: 10px;
+              }
+              
+              #work .work-grid {
+                grid-template-columns: repeat(8, 1fr);
+                grid-template-rows: 1fr;
+                gap: 2px;
+                width: 400%;
+              }
+              
+              #work {
+                padding: 60px 0 0 0;
+              }
+              
+              #work .work-item {
+                height: 60vh;
+              }
+              
+              #work .slider-nav {
+                bottom: 10px;
+                left: 10px;
+              }
+              
+              #work .slider-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+              }
+            }
+            
+            @media (max-width: 480px) {
+              #work .work-container {
+                grid-template-columns: 0.05fr 12fr;
+                gap: 0;
+                padding: 0 0 0 5px;
+              }
+              
+              #work .work-grid {
+                grid-template-columns: repeat(8, 1fr);
+                grid-template-rows: 1fr;
+                gap: 2px;
+                width: 800%;
+              }
+              
+              #work {
+                padding: 40px 0 0 0;
+              }
+              
+              #work .work-item {
+                height: 50vh;
+              }
+            }
+          </style>
+          
+          <div class="work-container">
+            <!-- Left Blank Column (like Theory Films) -->
+            <div class="work-left-column"></div>
+            
+            <!-- Slider Container -->
+            <div class="work-slider-container">
+              <!-- Slider Navigation Buttons -->
+              <div class="slider-nav">
+                <button class="slider-btn" id="prevBtn">‹</button>
+                <button class="slider-btn" id="nextBtn">›</button>
+              </div>
+              
+              <div class="work-grid" id="workSlider">
+                <!-- Work Item 1 -->
+                <div class="work-item">
+                  <img src="assets/images/client-1.jpg" alt="Jigsaw" class="poster">
+                  <video muted loop playsinline>
+                    <source src="assets/videos/m naisr 1.mp4" type="video/mp4">
+                  </video>
+                  <div class="overlay">
+                    <div class="brand-name">M NASIR</div>
+                  </div>
+                </div>
+                
+                <!-- Work Item 2 -->
+                <div class="work-item">
+                  <img src="assets/images/rossa 1.jpg" alt="Pointr" class="poster">
+                  <video muted loop playsinline>
+                    <source src="assets/videos/rossa consert.mp4" type="video/mp4">
+                  </video>
+                  <div class="overlay">
+                    <div class="brand-name">ROSSA</div>
+                  </div>
+                </div>
+                
+                <!-- Work Item 3 -->
+                <div class="work-item">
+                  <img src="assets/images/elite.jpg" alt="FatFace" class="poster">
+                  <video muted loop playsinline>
+                    <source src="assets/videos/elite 3.mp4" type="video/mp4">
+                  </video>
+                  <div class="overlay">
+                    <div class="brand-name">ELITE</div>
+                  </div>
+                </div>
+                
+                <!-- Work Item 4 -->
+                <div class="work-item">
+                  <img src="assets/images/toktixjudika 3.jpg" alt="Majisto" class="poster">
+                  <video muted loop playsinline>
+                    <source src="assets/videos/universe music video.mp4" type="video/mp4">
+                  </video>
+                  <div class="overlay">
+                    <div class="brand-name">UNIVERSE</div>
+                  </div>
+                </div>
+                
+                <!-- Additional Work Items for Sliding -->
+                <div class="work-item">
+                  <img src="assets/images/AIM.png" alt="TUI" class="poster">
+                  <video muted loop playsinline>
+                    <source src="assets/videos/aim 1.mp4" type="video/mp4">
+                  </video>
+                  <div class="overlay">
+                    <div class="brand-name">AIM</div>
+                  </div>
+                </div>
+                
+                <div class="work-item">
+                  <img src="assets/images/client-6.jpg" alt="Tantalex" class="poster">
+                  <video muted loop playsinline>
+                    <source src="assets/videos/dele.mp4.mp4" type="video/mp4">
+                  </video>
+                  <div class="overlay">
+                    <div class="brand-name">TANTALEX</div>
+                  </div>
+                </div>
+                
+                <div class="work-item">
+                  <img src="assets/images/client-7.jpg" alt="Filestage" class="poster">
+                  <video muted loop playsinline>
+                    <source src="assets/videos/index-aboutus.mp4" type="video/mp4">
+                  </video>
+                  <div class="overlay">
+                    <div class="brand-name">FILESTAGE</div>
+                  </div>
+                </div>
+                
+                <div class="work-item">
+                  <img src="assets/images/client-8.jpg" alt="Brand 8" class="poster">
+                  <video muted loop playsinline>
+                    <source src="assets/videos/genkru.mp4" type="video/mp4">
+                  </video>
+                  <div class="overlay">
+                    <div class="brand-name">BRAND 8</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <script>
+            // Work Slider Functionality with Auto-slide
+            document.addEventListener('DOMContentLoaded', function() {
+              const workSlider = document.getElementById('workSlider');
+              const prevBtn = document.getElementById('prevBtn');
+              const nextBtn = document.getElementById('nextBtn');
+              const workItems = document.querySelectorAll('#work .work-item');
+              
+              let currentSlide = 0;
+              const totalItems = workItems.length;
+              const itemsPerView = 4;
+              const maxSlides = totalItems - 1; // Slide one image at a time
+              let autoSlideInterval;
+              
+              // Slider functionality - slide one image at a time
+              function updateSlider() {
+                const translateX = -(currentSlide * (100 / totalItems));
+                workSlider.style.transform = `translateX(${translateX}%)`;
+              }
+              
+              function nextSlide() {
+                currentSlide = currentSlide >= maxSlides ? 0 : currentSlide + 1;
+                updateSlider();
+              }
+              
+              function prevSlide() {
+                currentSlide = currentSlide <= 0 ? maxSlides : currentSlide - 1;
+                updateSlider();
+              }
+              
+              // Auto-slide every 20 seconds
+              function startAutoSlide() {
+                autoSlideInterval = setInterval(nextSlide, 20000);
+              }
+              
+              function stopAutoSlide() {
+                clearInterval(autoSlideInterval);
+              }
+              
+              // Button event listeners
+              nextBtn.addEventListener('click', function() {
+                stopAutoSlide();
+                nextSlide();
+                startAutoSlide(); // Restart auto-slide after manual interaction
+              });
+              
+              prevBtn.addEventListener('click', function() {
+                stopAutoSlide();
+                prevSlide();
+                startAutoSlide(); // Restart auto-slide after manual interaction
+              });
+              
+              // Pause auto-slide on hover, resume on leave
+              const workContainer = document.querySelector('#work .work-slider-container');
+              workContainer.addEventListener('mouseenter', stopAutoSlide);
+              workContainer.addEventListener('mouseleave', startAutoSlide);
+              
+              // Video hover functionality for work items
+              workItems.forEach(item => {
+                const video = item.querySelector('video');
+                
+                item.addEventListener('mouseenter', function() {
+                  if (video) {
+                    video.currentTime = 0;
+                    video.play().catch(e => console.log('Video play failed:', e));
+                  }
+                });
+                
+                item.addEventListener('mouseleave', function() {
+                  if (video) {
+                    video.pause();
+                    video.currentTime = 0;
+                  }
+                });
+              });
+              
+              // Start auto-slide
+              startAutoSlide();
+            });
+            
+            // Scroll Animations
+            const observerOptions = {
+              root: null,
+              rootMargin: '-10% 0px -10% 0px',
+              threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('animate-in');
+                }
+              });
+            }, observerOptions);
+
+            // Observe all sections for animations
+            document.addEventListener('DOMContentLoaded', () => {
+              const animatedElements = document.querySelectorAll('.hero-content, .service-card, .carousel-slide, .testimonial-card, .contact-info, #recent-work h2, #services h2, #testimonials h2, #contact h2');
+              
+              animatedElements.forEach(el => {
+                el.classList.add('animate-element');
+                observer.observe(el);
+              });
+            });
+          </script>
+          
+          <!-- See Our Work Button -->
+          <div style="text-align: center; padding: 40px 0; background: #2c3e50;">
+            <a href="our-work.html" style="background: #D4AF37; color: #1a2332; padding: 18px 36px; text-decoration: none; font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; display: inline-block; border-radius: 0;" onmouseover="this.style.background='#B8941F'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#D4AF37'; this.style.transform='translateY(0)'">SEE OUR WORK</a>
+          </div>
+        </section>
+
+
+        <!-- Enhanced Testimonials Section -->
+        <section id="testimonials" style="background: #ffffff; padding: 80px 20px; position: relative; overflow: hidden; margin: 0;">
+          
+          <style>
+            /* Enhanced testimonials styles */
+            #testimonials{position: relative; z-index: 1;}
+            #testimonials .t-wrap{max-width: 1200px; margin:0 auto; display:grid; grid-template-columns: 1fr 1.5fr; gap:60px; align-items:center; padding: 0 20px;}
+            #testimonials .intro h2{margin:0 0 24px; font-weight:900; font-size:clamp(36px,6vw,56px); letter-spacing:-0.5px; color: var(--color-navy); line-height: 1.1;}
+            #testimonials .intro p{margin:0 0 32px; opacity:.85; font-size: 20px; line-height: 1.6; color: var(--color-onyx);}
+            #testimonials .intro .btn{display:inline-block; padding:16px 32px; border-radius:12px; text-decoration:none; background: #D4AF37; color: var(--color-pearl); font-weight: 700; font-size: 16px; transition: all 0.3s ease; box-shadow: 0 8px 24px rgba(212, 175, 55, 0.3);}
+            #testimonials .intro .btn:hover{transform: translateY(-3px); box-shadow: 0 12px 32px rgba(212, 175, 55, 0.4);}
+
+            /* Right column: single-centered card carousel */
+            #testimonials .v-viewport{position:relative; height:360px; overflow:hidden;
+              /* Soft fade top/bottom while showing 3 cards */
+              -webkit-mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.6) 8%, #000 22%, #000 78%, rgba(0,0,0,.6) 92%, transparent 100%);
+                      mask-image: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.6) 8%, #000 22%, #000 78%, rgba(0,0,0,.6) 92%, transparent 100%);
+            }
+            #testimonials .v-track{position:absolute; inset:0 auto auto 0; width:100%; display:flex; flex-direction:column; gap:14px; will-change: transform; transition: transform .35s ease}
+
+            #testimonials .t-item{background:#fff; border-radius:16px; box-shadow:0 12px 32px rgba(2,6,23,.12); border:1px solid rgba(2,6,23,.08); padding:24px 20px; display:grid; grid-template-columns:72px 1fr; gap:16px; align-items:center;
+              opacity:.2; filter: grayscale(1) blur(2px); transform: translateX(24px) scale(.96); transition: all .35s ease;}
+            #testimonials .t-item.active{opacity:1; filter: none; transform: translateX(0) scale(1); box-shadow:0 16px 40px rgba(2,6,23,.18);}
+            #testimonials .t-item.active::before{content:""; position:absolute; left:-12px; top:16px; bottom:16px; width:8px; border-radius:8px; background: linear-gradient(180deg, var(--color-navy), var(--color-teal));}
+            #testimonials .t-item .avatar{width:72px; height:72px; border-radius:50%; overflow:hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);}
+            #testimonials .t-item .avatar img{width:100%; height:100%; object-fit:cover; display:block;}
+            #testimonials .t-item .name{margin:0; font-weight:800; font-size: 16px; color: var(--color-navy);}
+            #testimonials .t-item .role{margin:0; font-size:14px; opacity:.7; color: var(--color-teal);}
+            #testimonials .t-item .words{margin:8px 0 0; font-size:15px; line-height:1.7; color:#333;}
+
+            /* Accent bar on active card */
+            #testimonials .t-item{position:relative}
+
+            @media (max-width: 900px){ 
+              #testimonials .t-wrap{
+                grid-template-columns:1fr;
+                gap: 40px;
+              } 
+            }
+            
+            @media (max-width: 768px){
+              #testimonials {
+                padding: 60px 15px !important;
+              }
+              
+              #testimonials .t-wrap {
+                padding: 0 10px;
+              }
+            }
+          </style>
+          <div class="t-wrap">
+            <div class="intro">
+              <h2>What Our Customers Say</h2>
+              <p>Real feedback from clients we’ve partnered with worldwide.</p>
+              <a href="#contact" class="btn">View More</a>
+            </div>
+            <div class="v-viewport">
+              <div class="v-track" id="t-track">
+                <!-- Items: replace avatar src and text as you like. Add as many as you want. -->
+                <div class="t-item">
+                  <div class="avatar"><img src="https://images.unsplash.com/photo-1544723795-3fb6469f5b39?q=80&w=300&auto=format&fit=crop" alt="Mehwish" /></div>
+                  <div>
+                    <p class="name">Mehwish</p>
+                    <p class="role">Product Lead</p>
+                    <p class="words">Commitment, clear comms and an eye for detail. The edits always landed perfectly.</p>
+                  </div>
+                </div>
+                <div class="t-item">
+                  <div class="avatar"><img src="https://images.unsplash.com/photo-1554151228-14d9def656e4?q=80&w=300&auto=format&fit=crop" alt="Elizabeth Jeff" /></div>
+                  <div>
+                    <p class="name">Elizabeth Jeff</p>
+                    <p class="role">Founder</p>
+                    <p class="words">From brief to delivery, the experience was smooth—and the film boosted our campaign.</p>
+                  </div>
+                </div>
+                <div class="t-item">
+                  <div class="avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=300&auto=format&fit=crop" alt="Emily Thomas" /></div>
+                  <div>
+                    <p class="name">Emily Thomas</p>
+                    <p class="role">Marketing</p>
+                    <p class="words">On‑time, on‑brand and beautifully shot. Our team loved the result.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <script>
+            (function(){
+              const viewport = document.querySelector('#testimonials .v-viewport');
+              const track = document.getElementById('t-track');
+              if(!viewport || !track) return;
+              const original = Array.from(track.children);
+              // Duplicate once to enable smooth circular loop
+              original.forEach(n=> track.appendChild(n.cloneNode(true)));
+              let items = Array.from(track.children);
+              const visible = 3; // show 3 at a time
+              const step = 1;    // move by 1 each tick (downward)
+              let index = 0, cardH = 0, gap = 14, timer = null, hovering = false;
+
+              function measure(){
+                const first = items[0];
+                if(!first) return;
+                const r = first.getBoundingClientRect();
+                cardH = Math.round(r.height);
+                viewport.style.height = (visible * (cardH + gap) - gap) + 'px';
+                go(index, false);
+              }
+
+              function setActive(){
+                const total = original.length;
+                // middle of the 3 visible is active
+                const virt = (index + Math.floor(visible/2)) % total; // middle of window
+                items.forEach((el,i)=> el.classList.toggle('active', (i % total) === virt));
+              }
+
+              function go(i, animate=true){
+                index = i;
+                if(!animate) track.style.transition = 'none';
+                else track.style.transition = 'transform .35s ease';
+                const offset = -(index * (cardH + gap));
+                track.style.transform = `translateY(${offset}px)`;
+                setActive();
+              }
+
+              function tick(){
+                if(hovering) return;
+                const total = original.length;
+                // When we pass the last original, jump back by total without flicker
+                if(index >= total){ index = index - total; go(index, false); }
+                go(index + step, true);
+              }
+
+              function start(){ if(timer) clearInterval(timer); timer = setInterval(tick, 3000); }
+              function stop(){ if(timer) clearInterval(timer); timer = null; }
+
+              viewport.addEventListener('mouseenter', ()=> { hovering = true; });
+              viewport.addEventListener('mouseleave', ()=> { hovering = false; });
+              window.addEventListener('resize', measure);
+
+              measure();
+              setActive();
+              start();
+            })();
+          </script>
+        </section>
+
+        <!-- Video Action Section -->
+        <section style="background: #f5f5f5; padding: 80px 60px;">
+          <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+            <!-- Left Content -->
+            <div>
+              <p style="color: var(--color-gold); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 20px 0;">FOR VIDEOS THAT DRIVE ACTION</p>
+              
+              <h2 style="font-size: clamp(32px, 5vw, 48px); font-weight: 900; margin: 0 0 30px 0; line-height: 1.2; color: #1a1a1a; font-style: italic;">CRAFTING STORIES THAT INSPIRE, ENGAGE & LAST</h2>
+              
+              <p style="font-size: 16px; line-height: 1.6; color: #333; margin: 0 0 20px 0;">Visual storytelling is one of the most powerful ways to connect with your audience, and bringing those stories to life is at the heart of what we do.</p>
+              
+              <p style="font-size: 16px; line-height: 1.6; color: #333; margin: 0 0 40px 0;">At Bangsawan Pictures, we blend creativity with technical expertise to craft visuals that resonate both locally and globally. Our dedicated team handles the entire journey from concept and script development to production, post-production, and beyond. With a commitment to artistry, innovation, and impact, we guide you through every stage to ensure your story is told with clarity and distinction.</p>
+              
+              <button style="background: #1a1a1a; color: white; padding: 16px 32px; border: none; font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#333'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#1a1a1a'; this.style.transform='translateY(0)'">
+                GET IN TOUCH
+              </button>
+            </div>
+            
+            <!-- Right Video Player -->
+            <div style="position: relative;">
+              <div style="position: relative; background: #000; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+                <video style="width: 100%; height: 300px; object-fit: cover;" controls poster="">
+                  <source src="assets/videos/genkru.mp4" type="video/mp4">
+                </video>
+                
+                <!-- Video overlay info -->
+                <div style="position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.8); color: white; padding: 4px 8px; border-radius: 4px; font-size: 12px;">
+                  Client: Bangsawan Pictures Explainer Film
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Latest Video News & Insights Section -->
+        <section style="background: #1a2332; padding: 80px 40px; color: white;">
+          <div style="max-width: 1400px; margin: 0 auto;">
+            <!-- Section Header -->
+            <h2 style="font-size: clamp(36px, 5vw, 48px); font-weight: 900; color: white; margin: 0 0 60px 0; text-align: left; font-style: italic; text-transform: uppercase; letter-spacing: -1px;">LATEST VIDEO NEWS & <span style="color: #D4AF37;">INSIGHTS</span></h2>
+            
+            <!-- Insights Grid -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-bottom: 60px;">
+              
+              <!-- Insight Article 1 -->
+              <div style="background: rgba(255,255,255,0.05); border-radius: 0; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <div style="height: 200px; background: linear-gradient(135deg, #D4AF37, #B8941F); position: relative; display: flex; align-items: center; justify-content: center;">
+                  <div style="text-align: center; padding: 20px;">
+                    <h3 style="color: white; font-size: 20px; font-weight: 700; margin: 0 0 10px 0; line-height: 1.2;">Why Clients Miss the <span style="background: #ff4444; padding: 2px 8px; border-radius: 4px;">Bigger Picture</span> Beyond the <span style="background: #ff4444; padding: 2px 8px; border-radius: 4px;">Final Cut.</span></h3>
+                  </div>
+                </div>
+                <div style="padding: 25px;">
+                  <h4 style="color: white; font-size: 18px; font-weight: 700; margin: 0 0 15px 0;">Why Clients Miss the Bigger Picture Beyond the Final Cut.</h4>
+                  <p style="color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6; margin: 0 0 20px 0;">If your last promotional video garnered only a few views, this guide will help you understand why and how to improve its...</p>
+                  <a href="insights.html#bigger-picture" style="background: transparent; border: 2px solid #D4AF37; color: #D4AF37; padding: 10px 20px; text-decoration: none; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.background='#D4AF37'; this.style.color='#1a2332'" onmouseout="this.style.background='transparent'; this.style.color='#D4AF37'">READ MORE</a>
+                </div>
+              </div>
+              
+              <!-- Insight Article 2 -->
+              <div style="background: rgba(255,255,255,0.05); border-radius: 0; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <div style="height: 200px; background: linear-gradient(135deg, #2c3e50, #34495e); position: relative; display: flex; align-items: center; justify-content: center;">
+                  <div style="text-align: center; padding: 20px;">
+                    <h3 style="color: white; font-size: 20px; font-weight: 700; margin: 0 0 10px 0; line-height: 1.2;">Is <span style="background: #ff4444; padding: 2px 8px; border-radius: 4px;">Professional Video Production</span> <span style="background: #ff4444; padding: 2px 8px; border-radius: 4px;">DEAD?</span></h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 12px; font-style: italic; margin: 0;">(Asking for a Friend)</p>
+                  </div>
+                </div>
+                <div style="padding: 25px;">
+                  <h4 style="color: white; font-size: 18px; font-weight: 700; margin: 0 0 15px 0;">Is Professional Video Dead? (Asking for a Friend)</h4>
+                  <p style="color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6; margin: 0 0 20px 0;">Are major brands choosing influencers over traditional video production companies for their video content needs?</p>
+                  <a href="insights.html#video-production-dead" style="background: transparent; border: 2px solid #D4AF37; color: #D4AF37; padding: 10px 20px; text-decoration: none; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.background='#D4AF37'; this.style.color='#1a2332'" onmouseout="this.style.background='transparent'; this.style.color='#D4AF37'">READ MORE</a>
+                </div>
+              </div>
+              
+              <!-- Insight Article 3 -->
+              <div style="background: rgba(255,255,255,0.05); border-radius: 0; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+                <div style="height: 200px; background: linear-gradient(135deg, #f39c12, #e67e22); position: relative; display: flex; align-items: center; justify-content: center;">
+                  <div style="text-align: center; padding: 20px;">
+                    <h3 style="color: white; font-size: 20px; font-weight: 700; margin: 0 0 10px 0; line-height: 1.2;"><span style="background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 4px;">The Fear of Being Different</span> in Advertising</h3>
+                    <!-- Decorative circles -->
+                    <div style="position: absolute; top: 20px; right: 20px; width: 30px; height: 30px; background: rgba(255,255,255,0.3); border-radius: 50%;"></div>
+                    <div style="position: absolute; bottom: 20px; left: 20px; width: 20px; height: 20px; background: rgba(255,255,255,0.2); border-radius: 50%;"></div>
+                    <div style="position: absolute; top: 50px; left: 30px; width: 15px; height: 15px; background: rgba(255,255,255,0.4); border-radius: 50%;"></div>
+                  </div>
+                </div>
+                <div style="padding: 25px;">
+                  <h4 style="color: white; font-size: 18px; font-weight: 700; margin: 0 0 15px 0;">I Want To Be Different Like Everyone Else</h4>
+                  <p style="color: rgba(255,255,255,0.8); font-size: 14px; line-height: 1.6; margin: 0 0 20px 0;">Learn how to create training videos that captivate learners and drive results. Explore different formats, best practices, and expert tips from Theory.</p>
+                  <a href="insights.html#be-different" style="background: transparent; border: 2px solid #D4AF37; color: #D4AF37; padding: 10px 20px; text-decoration: none; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; display: inline-block;" onmouseover="this.style.background='#D4AF37'; this.style.color='#1a2332'" onmouseout="this.style.background='transparent'; this.style.color='#D4AF37'">READ MORE</a>
+                </div>
+              </div>
+              
+            </div>
+            
+            <!-- View All Insights Button -->
+            <div style="text-align: center;">
+              <a href="insights.html" style="background: #D4AF37; color: #1a2332; padding: 16px 32px; text-decoration: none; font-weight: 700; font-size: 16px; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; display: inline-block; border-radius: 0;" onmouseover="this.style.background='#B8941F'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#D4AF37'; this.style.transform='translateY(0)'">VIEW ALL INSIGHTS</a>
+            </div>
+          </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section style="background: var(--color-pearl); padding: 100px 40px;">
+          <div style="max-width: none; margin: 0; padding: 0 60px;">
+            <p style="font-size: 14px; font-weight: 600; color: var(--color-gold); text-transform: uppercase; letter-spacing: 2px; margin: 0 0 20px 0;">HOW IT WORKS</p>
+            <h2 style="font-size: clamp(28px, 5vw, 42px); font-weight: 900; color: var(--color-onyx); margin: 0 0 20px 0; line-height: 1.2; text-transform: uppercase;">OUR VIDEO PRODUCTION WORKFLOW<span style="color: var(--color-gold);">:</span></h2>
+            <p style="font-size: 16px; line-height: 1.6; color: var(--color-onyx); margin: 0 0 50px 0;">Here's our comprehensive approach to creating exceptional video content from start to finish:</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 0; max-width: 100%; width: 100%;">
+              <!-- Research & Development -->
+              <div style="border: none; background: var(--color-gold); margin-bottom: 2px; width: 100%;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 30px; cursor: pointer; background: var(--color-gold); color: white; transition: background-color 0.3s ease;" onclick="toggleWorkflowAccordion(this)" onmouseover="this.style.background='#b8941f'" onmouseout="this.style.background='var(--color-gold)'">
+                  <h3 style="margin: 0; font-size: 18px; font-weight: 700; font-style: italic;">What services do you provide?</h3>
+                  <span style="font-size: 24px; font-weight: bold; transition: transform 0.3s ease;">−</span>
+                </div>
+                <div style="max-height: 200px; overflow: hidden; background: white; border: 2px solid var(--color-gold); border-top: none; padding: 20px 30px; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: top;">
+                  <p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--color-onyx);">We specialize in a wide range of video production services, including commercials, corporate videos, brand films, music videos, documentaries, and animation. Our directors are versatile and capable of bringing any creative vision to life.</p>
+                </div>
+              </div>
+              
+              <!-- Pre-Production -->
+              <div style="border: none; background: var(--color-gold); margin-bottom: 2px; width: 100%;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 30px; cursor: pointer; background: var(--color-gold); color: white; transition: background-color 0.3s ease;" onclick="toggleWorkflowAccordion(this)" onmouseover="this.style.background='#b8941f'" onmouseout="this.style.background='var(--color-gold)'">
+                  <h3 style="margin: 0; font-size: 18px; font-weight: 700; font-style: italic;">How do I start a project with you?</h3>
+                  <span style="font-size: 24px; font-weight: bold; transition: transform 0.3s ease;">+</span>
+                </div>
+                <div style="max-height: 0; overflow: hidden; background: white; border: 2px solid var(--color-gold); border-top: none; padding: 0 30px; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: top;">
+                  <p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--color-onyx);">Simply contact us through our website or email. Share your idea, goals, and budget, and our team will schedule a consultation to understand your needs before preparing a proposal.</p>
+                </div>
+              </div>
+              
+              <!-- Production -->
+              <div style="border: none; background: var(--color-gold); margin-bottom: 2px; width: 100%;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 30px; cursor: pointer; background: var(--color-gold); color: white; transition: background-color 0.3s ease;" onclick="toggleWorkflowAccordion(this)" onmouseover="this.style.background='#b8941f'" onmouseout="this.style.background='var(--color-gold)'">
+                  <h3 style="margin: 0; font-size: 18px; font-weight: 700; font-style: italic;">Can you work with small businesses as well as big brands?</h3>
+                  <span style="font-size: 24px; font-weight: bold; transition: transform 0.3s ease;">+</span>
+                </div>
+                <div style="max-height: 0; overflow: hidden; background: white; border: 2px solid var(--color-gold); border-top: none; padding: 0 30px; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: top;">
+                  <p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--color-onyx);">Absolutely! We collaborate with both established brands and startups. Every project, regardless of scale, receives the same level of creativity, care, and attention.</p>
+                </div>
+              </div>
+              
+              <!-- Post-Production -->
+              <div style="border: none; background: var(--color-gold); margin-bottom: 2px; width: 100%;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 30px; cursor: pointer; background: var(--color-gold); color: white; transition: background-color 0.3s ease;" onclick="toggleWorkflowAccordion(this)" onmouseover="this.style.background='#b8941f'" onmouseout="this.style.background='var(--color-gold)'">
+                  <h3 style="margin: 0; font-size: 18px; font-weight: 700; font-style: italic;">How much does a video production cost?</h3>
+                  <span style="font-size: 24px; font-weight: bold; transition: transform 0.3s ease;">+</span>
+                </div>
+                <div style="max-height: 0; overflow: hidden; background: white; border: 2px solid var(--color-gold); border-top: none; padding: 0 30px; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: top;">
+                  <p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--color-onyx);">The cost depends on factors such as project scope, duration, location, crew size, and post-production needs. We provide customized quotes after understanding your requirements.</p>
+                </div>
+              </div>
+
+              <!-- Production -->
+              <div style="border: none; background: var(--color-gold); margin-bottom: 2px; width: 100%;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 30px; cursor: pointer; background: var(--color-gold); color: white; transition: background-color 0.3s ease;" onclick="toggleWorkflowAccordion(this)" onmouseover="this.style.background='#b8941f'" onmouseout="this.style.background='var(--color-gold)'">
+                  <h3 style="margin: 0; font-size: 18px; font-weight: 700; font-style: italic;">What makes your company different from others?</h3>
+                  <span style="font-size: 24px; font-weight: bold; transition: transform 0.3s ease;">+</span>
+                </div>
+                <div style="max-height: 0; overflow: hidden; background: white; border: 2px solid var(--color-gold); border-top: none; padding: 0 30px; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: top;">
+                  <p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--color-onyx);">Our strength lies in our award-winning directors, collaborative approach, and ability to balance storytelling with technical excellence. We don’t just create videos we create meaningful experiences for audiences.</p>
+                </div>
+              </div>              
+              
+              <!-- Delivery -->
+              <div style="border: none; background: var(--color-gold); margin-bottom: 2px; width: 100%;">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 16px 30px; cursor: pointer; background: var(--color-gold); color: white; transition: background-color 0.3s ease;" onclick="toggleWorkflowAccordion(this)" onmouseover="this.style.background='#b8941f'" onmouseout="this.style.background='var(--color-gold)'">
+                  <h3 style="margin: 0; font-size: 18px; font-weight: 700; font-style: italic;">Do you handle the entire production process?</h3>
+                  <span style="font-size: 24px; font-weight: bold; transition: transform 0.3s ease;">+</span>
+                </div>
+                <div style="max-height: 0; overflow: hidden; background: white; border: 2px solid var(--color-gold); border-top: none; padding: 0 30px; transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: top;">
+                  <p style="margin: 0; font-size: 16px; line-height: 1.6; color: var(--color-onyx);">Yes, we manage everything from concept development, scriptwriting, filming, editing, animation, sound design, and final delivery. Clients are involved at every stage for feedback and approval.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Contact Section - Theory Film Style -->
+        <section id="contact" style="background: #2c3e50; padding: 80px 20px; position: relative; text-align: center; width: 100%; max-width: 100vw; box-sizing: border-box; overflow: hidden; margin: 0;">
+          <!-- Decorative arrow -->
+          <div style="position: absolute; top: 60px; left: 50%; transform: translateX(-50%); width: 60px; height: 60px;">
+            <svg width="60" height="60" viewBox="0 0 100 100" style="stroke: var(--color-gold); stroke-width: 2; fill: none; stroke-dasharray: 5,5;">
+              <path d="M20,20 Q50,5 80,20 Q65,50 80,80 Q50,65 20,80 Q35,50 20,20" stroke-linecap="round"/>
+              <path d="M45,35 L55,45 L45,55" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          
+          <div style="max-width: 800px; margin: 0 auto;">
+            <!-- Small header text -->
+            <p style="color: var(--color-gold); font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 20px 0;">GOT A PROJECT IN MIND?</p>
+            
+            <!-- Main heading -->
+            <h2 style="font-size: clamp(48px, 8vw, 80px); font-weight: 900; margin: 0 0 60px 0; line-height: 1; text-transform: uppercase; letter-spacing: -2px; color: white; font-style: italic;">LET'S TALK</h2>
+            
+            <!-- Contact button -->
+            <a href="contact.html" style="background: var(--color-gold); color: #1a1a1a; padding: 18px 36px; border-radius: 0; text-decoration: none; font-weight: 700; font-size: 16px; display: inline-block; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 80px;" onmouseover="this.style.background='#B89C72'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--color-gold)'; this.style.transform='translateY(0)'">
+              CONTACT US
+            </a>
+          </div>
+        </section>
+
+
+    </main>
+
+    <!-- Theory Films Style Footer -->
+    <footer style="background: #1a2332; padding: 60px 20px 40px; color: white; width: 100%; max-width: 100vw; box-sizing: border-box; overflow: hidden; margin: 0;">
+      <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; align-items: start;">
+        
+        <!-- Left Column - Brand & Description -->
+        <div>
+          <div style="display: flex; align-items: center; margin-bottom: 20px;">
+            <span style="color: #D4AF37; font-weight: 900; font-size: 24px; text-transform: uppercase; letter-spacing: 1px;">BANGSAWAN</span>
+            <span style="color: white; font-weight: 300; font-size: 16px; margin-left: 8px;">FILMS</span>
+          </div>
+          <p style="color: rgba(255,255,255,0.8); font-size: 16px; line-height: 1.6; margin: 0 0 30px 0; max-width: 400px;">Bangsawan Pictures - one of Malaysia's best video production agencies, making great videos for great brands & agencies.</p>
+          
+          <!-- Awards/Badges -->
+          <div style="display: flex; gap: 20px; align-items: center; margin-bottom: 40px;">
+            <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; text-align: center; min-width: 80px;">
+              <div style="font-size: 12px; font-weight: 700; color: #D4AF37; margin-bottom: 5px;">CLUTCH</div>
+              <div style="font-size: 10px; color: rgba(255,255,255,0.7);">TOP AGENCY</div>
+            </div>
+            <div style="background: rgba(255,255,255,0.1); padding: 15px; border-radius: 8px; text-align: center; min-width: 80px;">
+              <div style="font-size: 12px; font-weight: 700; color: #D4AF37; margin-bottom: 5px;">THE</div>
+              <div style="font-size: 10px; color: rgba(255,255,255,0.7);">WEBBY AWARDS</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Quick Links Column -->
+        <div>
+          <h4 style="color: #D4AF37; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 20px 0;">QUICK LINKS</h4>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin-bottom: 12px;"><a href="#home" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Home</a></li>
+            <li style="margin-bottom: 12px;"><a href="about.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">About</a></li>
+            <li style="margin-bottom: 12px;"><a href="our-process.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Our Process</a></li>
+            <li style="margin-bottom: 12px;"><a href="#work" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Work</a></li>
+            <li style="margin-bottom: 12px;"><a href="#insights" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Insights</a></li>
+            <li style="margin-bottom: 12px;"><a href="#contact" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Contact</a></li>
+            <li style="margin-bottom: 12px;"><a href="privacy-policy.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Privacy Policy</a></li>
+            <li style="margin-bottom: 12px;"><a href="terms-conditions.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Terms & Conditions</a></li>
+          </ul>
+        </div>
+        
+        <!-- Services Column -->
+        <div>
+          <h4 style="color: #D4AF37; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 20px 0;">SERVICES</h4>
+          <ul style="list-style: none; padding: 0; margin: 0;">
+            <li style="margin-bottom: 12px;"><a href="services/brand-videos.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Brand Videos</a></li>
+            <li style="margin-bottom: 12px;"><a href="services/social-media-videos.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Social Media Videos</a></li>
+            <li style="margin-bottom: 12px;"><a href="services/animated-explainers.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Animated Explainer Videos</a></li>
+            <li style="margin-bottom: 12px;"><a href="services/promo-videos.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Promo Videos</a></li>
+            <li style="margin-bottom: 12px;"><a href="services/education-elearning.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Education & E-Learning Videos</a></li>
+            <li style="margin-bottom: 12px;"><a href="services/testimonial-videos.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">Testimonial Videos</a></li>
+            <li style="margin-bottom: 12px;"><a href="services/tv-commercials.html" style="color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">TV Commercials</a></li>
+          </ul>
+        </div>
+        
+        <!-- Contact Column -->
+        <div>
+          <h4 style="color: #D4AF37; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 20px 0;">SAY HELLO!</h4>
+          <div style="margin-bottom: 15px;">
+            <p style="color: white; font-size: 14px; margin: 0; display: flex; align-items: center; gap: 8px;">📞 (+60) 12-345 6789</p>
+          </div>
+          <div style="margin-bottom: 15px;">
+            <p style="color: white; font-size: 14px; margin: 0; display: flex; align-items: center; gap: 8px;">✉️ contact@bangsawanpictures.com</p>
+          </div>
+          <div style="margin-bottom: 25px;">
+            <p style="color: white; font-size: 14px; margin: 0; display: flex; align-items: center; gap: 8px;">📍 Kuala Lumpur, Malaysia</p>
+          </div>
+          
+          <!-- Social Media Icons -->
+          <div style="display: flex; gap: 12px;">
+            <a href="#" style="color: rgba(255,255,255,0.8); font-size: 18px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">📘</a>
+            <a href="#" style="color: rgba(255,255,255,0.8); font-size: 18px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">📷</a>
+            <a href="#" style="color: rgba(255,255,255,0.8); font-size: 18px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">🐦</a>
+            <a href="#" style="color: rgba(255,255,255,0.8); font-size: 18px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">💼</a>
+            <a href="#" style="color: rgba(255,255,255,0.8); font-size: 18px; transition: color 0.3s ease;" onmouseover="this.style.color='#D4AF37'" onmouseout="this.style.color='rgba(255,255,255,0.8)'">💼</a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Bottom Copyright Bar -->
+      <div style="border-top: 1px solid rgba(255,255,255,0.1); margin-top: 60px; padding-top: 30px; display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin-left: auto; margin-right: auto;">
+        <p style="color: rgba(255,255,255,0.6); font-size: 14px; margin: 0;">© <span id="y"></span> Bangsawan Pictures. All rights reserved.</p>
+        <p style="color: rgba(255,255,255,0.6); font-size: 14px; margin: 0;">Web design by Action Wolf Media</p>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById("y").textContent = new Date().getFullYear();
+      
+      // Accordion functionality for workflow section
+      function toggleWorkflowAccordion(header) {
+        const content = header.nextElementSibling;
+        const icon = header.querySelector('span');
+        const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+        
+        if (isOpen) {
+          // Close
+          content.style.maxHeight = '0px';
+          content.style.padding = '0 30px';
+          icon.textContent = '+';
+        } else {
+          // Open
+          content.style.maxHeight = '200px';
+          content.style.padding = '20px 30px';
+          icon.textContent = '−';
+        }
+      }
+
+      // Service cards video hover functionality
+      document.addEventListener('DOMContentLoaded', function() {
+        const serviceCards = document.querySelectorAll('#services .card');
+        
+        serviceCards.forEach(card => {
+          const video = card.querySelector('video');
+          const content = card.querySelector('.content');
+          
+          if (video && content) {
+            card.addEventListener('mouseenter', function() {
+              // Play video
+              video.play().catch(e => console.log('Video play failed:', e));
+              
+              // Add video-active class
+              card.classList.add('video-active');
+              
+              // Ensure content stays visible with high z-index
+              content.style.zIndex = '5';
+              content.style.opacity = '1';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+              // Pause and reset video
+              video.pause();
+              video.currentTime = 0;
+              
+              // Remove video-active class
+              card.classList.remove('video-active');
+              
+              // Keep content visible
+              content.style.zIndex = '4';
+              content.style.opacity = '1';
+            });
+          }
+        });
+      });
+    </script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
